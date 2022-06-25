@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Prim\FilmesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prim\FilmesForm.Designer.cs">
+      <DependentUpon>FilmesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocadoraForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Prim\FilmesForm.resx">
+      <DependentUpon>FilmesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="João\" />
-    <Folder Include="Prim\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
