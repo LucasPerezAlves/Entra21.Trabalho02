@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Prim\ClassificacaoIndicativa.cs" />
+    <Compile Include="Prim\Filme.cs" />
+    <Compile Include="Prim\FilmeServico.cs" />
     <Compile Include="Prim\FilmesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,10 +68,14 @@
     <Compile Include="Perez\ClientesForm.Designer.cs">
       <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Prim\GeneroFilme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Perez\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prim\FilmesForm.resx">
+      <DependentUpon>FilmesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -94,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="João\" />
-    <Folder Include="Prim\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

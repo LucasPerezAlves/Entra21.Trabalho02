@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNome = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.radioButtonMaiorIdade = new System.Windows.Forms.RadioButton();
@@ -40,10 +44,6 @@
             this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
             this.labelSexo = new System.Windows.Forms.Label();
             this.radioButtonFeminino = new System.Windows.Forms.RadioButton();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
@@ -65,6 +65,30 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(549, 425);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnEndereco
+            // 
+            this.ColumnEndereco.HeaderText = "Endereço";
+            this.ColumnEndereco.Name = "ColumnEndereco";
+            this.ColumnEndereco.ReadOnly = true;
+            // 
+            // ColumnGenero
+            // 
+            this.ColumnGenero.HeaderText = "Genêro";
+            this.ColumnGenero.Name = "ColumnGenero";
+            this.ColumnGenero.ReadOnly = true;
+            // 
+            // ColumnSexo
+            // 
+            this.ColumnSexo.HeaderText = "Sexo";
+            this.ColumnSexo.Name = "ColumnSexo";
+            this.ColumnSexo.ReadOnly = true;
             // 
             // labelNome
             // 
@@ -168,30 +192,6 @@
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
             // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            // 
-            // ColumnEndereco
-            // 
-            this.ColumnEndereco.HeaderText = "Endereço";
-            this.ColumnEndereco.Name = "ColumnEndereco";
-            this.ColumnEndereco.ReadOnly = true;
-            // 
-            // ColumnGenero
-            // 
-            this.ColumnGenero.HeaderText = "Genêro";
-            this.ColumnGenero.Name = "ColumnGenero";
-            this.ColumnGenero.ReadOnly = true;
-            // 
-            // ColumnSexo
-            // 
-            this.ColumnSexo.HeaderText = "Sexo";
-            this.ColumnSexo.Name = "ColumnSexo";
-            this.ColumnSexo.ReadOnly = true;
-            // 
             // buttonEditar
             // 
             this.buttonEditar.Location = new System.Drawing.Point(53, 12);
@@ -242,6 +242,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "ClientesForm";
             this.Text = "ClientesForm";
+            this.Load += new System.EventHandler(this.ClientesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

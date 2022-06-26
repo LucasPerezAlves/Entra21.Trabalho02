@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LocadoraForm.Perez
@@ -16,9 +9,9 @@ namespace LocadoraForm.Perez
         {
             InitializeComponent();
 
-            clienteServico = new ClienteServico();
+            //clienteServico = new ClienteServico();
 
-            
+
         }
 
         private void textBoxNome_TextChanged(object sender, EventArgs e)
@@ -33,13 +26,18 @@ namespace LocadoraForm.Perez
 
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                
+
             }
         }
 
         private void AdicionarCliente()
         {
-            var cliente = new Cliente()
+            //var cliente = new Cliente();
+        }
+
+        private void ClientesForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
