@@ -23,7 +23,7 @@ namespace LocadoraForm.jao
         {
             var cep = maskedTextBoxCep.Text;
             var enderecoCompleto = textBoxEnderecoCompleto.Text;
-            var horarioAtendimento = dateTimePickerHoraAtendimento.Text;
+            var horarioAtendimento = maskedTextBoxHorarioAtendimento.Text;
 
             var dadosValidos = ValidarDados(cep, enderecoCompleto, horarioAtendimento);
 
@@ -40,20 +40,6 @@ namespace LocadoraForm.jao
                 EditarEndereco(cep, enderecoCompleto, horarioAtendimento);
 
             
-        }
-
-        private void EditarEndereco(string cep, string enderecoCompleto, string horarioAtendimento)
-        {
-            var linhaSelecionada = dataGridView1.SelectedRows[0];
-            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-
-            var endereco = new Endereco();
-            endereco.Codigo = codigoSelecionado;
-            endereco.EnderecoCompleto = enderecoCompleto;
-            endereco.Cep = cep;
-            endereco.HorarioAtendimento = horarioAtendimento;
-
-            locadoraFisicaServico.Editar(endereco);
         }
 
         private void CadastrarEndereco(string cep, string enderecoCompleto, string horarioAtendimento)
@@ -87,11 +73,11 @@ namespace LocadoraForm.jao
                 return false;
             }
 
-            if (horarioAtendimento.Replace(":", "").Trim().Length != 8)
+            if (horarioAtendimento.Replace(":", "").Trim().Length != 4)
             {
                 MessageBox.Show("Horario de atendimento inválido");
 
-                dateTimePickerHoraAtendimento.Focus();
+                maskedTextBoxHorarioAtendimento.Focus();
 
                 return false;
             }
@@ -108,7 +94,7 @@ namespace LocadoraForm.jao
         {
             maskedTextBoxCep.Text = "";
             textBoxEnderecoCompleto.Text = "";
-            dateTimePickerHoraAtendimento.Text = "";
+            maskedTextBoxHorarioAtendimento.Text = "";
 
             dataGridView1.ClearSelection();
         }

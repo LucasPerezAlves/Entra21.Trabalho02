@@ -21,7 +21,7 @@ namespace LocadoraForm.Prim
         {
             filmes.Add(filme);
 
-            //SALVAR
+            SalvarArquivo();
         }
 
         public void Editar(Filme filmeEditar)
@@ -36,7 +36,7 @@ namespace LocadoraForm.Prim
                     filme.GeneroFilme = filmeEditar.GeneroFilme;
                     filme.ClassificacaoIndicativa = filmeEditar.ClassificacaoIndicativa;
 
-                    //SALVAR
+                    SalvarArquivo();
 
                     return;
                 }
@@ -53,11 +53,43 @@ namespace LocadoraForm.Prim
                 {
                     filmes.Remove(filme);
 
-                    //SALVAR
+                    SalvarArquivo();
 
                     return;
                 }
             }
+        }
+
+        private List<Filme> ObterTodos()
+        {
+            return filmes;
+        }
+
+        public Filme ObterPorNomeFilme(string nomeFilme)
+        {
+            for (var i = 0; i < filmes.Count; i++)
+            {
+                var filme = filmes[i];
+
+                if (filme.NomeFilme == nomeFilme)
+                    return filme;
+            }
+
+            return null;
+        }
+
+        public int ObterUltimoCodigo()
+        {
+            var ultimoCodigo = 0;
+
+            for (var i = 0; i < filmes.Count; i++)
+            {
+                var filme = filmes[i];
+
+                ultimoCodigo = filme.Codigo;
+            }
+
+            return ultimoCodigo;
         }
 
         public Filme ObterPorCodigo(int codigo)

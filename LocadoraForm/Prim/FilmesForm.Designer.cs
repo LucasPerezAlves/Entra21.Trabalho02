@@ -78,7 +78,6 @@
             this.comboBoxGeneroFilme.Name = "comboBoxGeneroFilme";
             this.comboBoxGeneroFilme.Size = new System.Drawing.Size(227, 21);
             this.comboBoxGeneroFilme.TabIndex = 2;
-            this.comboBoxGeneroFilme.SelectedIndexChanged += new System.EventHandler(this.comboBoxGeneroFilme_SelectedIndexChanged);
             // 
             // label1
             // 
