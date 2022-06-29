@@ -9,7 +9,7 @@ namespace LocadoraForm.Perez
     internal class Cliente
     {
         public int Codigo;
-        public int Nome;
+        public string Nome;
         public int Cep;
     }
 }
