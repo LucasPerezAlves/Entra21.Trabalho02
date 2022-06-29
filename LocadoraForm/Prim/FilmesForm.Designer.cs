@@ -78,6 +78,7 @@
             this.comboBoxGeneroFilme.Name = "comboBoxGeneroFilme";
             this.comboBoxGeneroFilme.Size = new System.Drawing.Size(227, 21);
             this.comboBoxGeneroFilme.TabIndex = 2;
+            this.comboBoxGeneroFilme.SelectedIndexChanged += new System.EventHandler(this.comboBoxGeneroFilme_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -191,6 +192,7 @@
             this.buttonEditar.TabIndex = 13;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
@@ -201,6 +203,7 @@
             this.buttonApagar.TabIndex = 14;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // FilmesForm
             // 
@@ -225,6 +228,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "FilmesForm";
             this.Text = "FilmesForm";
+            this.Load += new System.EventHandler(this.FilmesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,43 +1,47 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 // LINHAS COMENTADAS FAZER CORREÇÃO
 
 namespace LocadoraForm.Prim
 {
-    public class FilmeServico
+    internal class FilmeServico
     {
         private List<Filme> filmes;
 
         public FilmeServico()
         {
             filmes = new List<Filme>();
+
+            LerArquivo();
         }
 
-        //public void Adicionar(Filme filme)
-        //{
-        //    filmes.Add(filme);
+        public void Adicionar(Filme filme)
+        {
+            filmes.Add(filme);
 
-        //    //SALVAR
-        //}
+            //SALVAR
+        }
 
-        //public void Editar(Filme filmeEditar)
-        //{
-        //    for (var i = 0; i < filmes.Count; i++)
-        //    {
-        //        var filme = filmes[i];
+        public void Editar(Filme filmeEditar)
+        {
+            for (var i = 0; i < filmes.Count; i++)
+            {
+                var filme = filmes[i];
 
-        //        if (filme.Codigo == filmeEditar.Codigo)
-        //        {
-        //            filme.NomeFilme = filmeEditar.NomeFilme;
-        //            filme.GeneroFilme = filmeEditar.GeneroFilme;
-        //            filme.ClassificacaoIndicativa = filmeEditar.ClassificacaoIndicativa;
+                if (filme.Codigo == filmeEditar.Codigo)
+                {
+                    filme.NomeFilme = filmeEditar.NomeFilme;
+                    filme.GeneroFilme = filmeEditar.GeneroFilme;
+                    filme.ClassificacaoIndicativa = filmeEditar.ClassificacaoIndicativa;
 
-        //            //SALVAR
+                    //SALVAR
 
-        //            return;
-        //        }
-        //    }
-        //}
+                    return;
+                }
+            }
+        }
 
         private void Apagar(Filme filmeApagar)
         {
@@ -54,6 +58,34 @@ namespace LocadoraForm.Prim
                     return;
                 }
             }
+        }
+
+        public Filme ObterPorCodigo(int codigo)
+        {
+            for (var i = 0; i < filmes.Count; i++)
+            {
+                var filme = filmes[i];
+
+                if (filme.Codigo == codigo)
+                    return filme;
+            }
+
+            return null;
+        }
+
+        private void LerArquivo()
+        {
+            if (File.Exists("filmes.json") == false)
+                return;
+
+            var filmesJson = File.ReadAllText("filmes.json");
+            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson); 
+        }
+
+        private void SalvarArquivo()
+        {
+            var filmesJson = JsonConvert.SerializeObject(filmes);
+            File.WriteAllText("filmes.json", filmesJson);
         }
     }
 }
