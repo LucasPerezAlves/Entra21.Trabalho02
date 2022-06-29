@@ -57,6 +57,12 @@
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="jao\LocadoraFisicaServico.cs" />
+    <Compile Include="MenuPrincipalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuPrincipalForm.Designer.cs">
+      <DependentUpon>MenuPrincipalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Perez\Cliente.cs" />
     <Compile Include="Prim\ClassificacaoIndicativa.cs" />
     <Compile Include="Prim\Filme.cs" />
@@ -100,6 +106,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -115,6 +122,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\calabresa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25246942.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31087.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
