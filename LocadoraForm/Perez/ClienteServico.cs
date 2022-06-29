@@ -11,8 +11,6 @@ namespace LocadoraForm.Perez
     internal class ClienteServico
     {
         private List<Cliente> clientes;
-    }
-    
     public ClienteServico()
     {
         clientes = new List<Cliente>();
@@ -66,5 +64,7 @@ namespace LocadoraForm.Perez
         }
         return null;
     }
+    }
+    
 
 }
