@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LocadoraForm.Perez;
+using System;
 using System.Windows.Forms;
 
 namespace LocadoraForm
@@ -13,7 +14,7 @@ namespace LocadoraForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FilmesForm());
+            Application.Run(new ClientesForm());
         }
     }
 }

@@ -37,8 +37,8 @@ namespace LocadoraForm.jao
 
                 CadastrarEndereco(cep, enderecoCompleto, horarioAtendimento);
 
-            else
-                EditarEndereco(cep, enderecoCompleto, horarioAtendimento);
+            //else
+            //    EditarEndereco(cep, enderecoCompleto, horarioAtendimento);
 
             PreencherDataGridViewComEnderecos();
 
@@ -132,9 +132,9 @@ namespace LocadoraForm.jao
             var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
             var endereco = locadoraFisicaServico.ObterPorCodigo(codigo);
 
-            maskedTextBoxCep.Text = endereco.Cep;
-            textBoxEnderecoCompleto.Text = endereco.EnderecoCompleto;
-            dateTimePickerHoraAtendimento.Text = endereco.HorarioAtendimento;
+            //maskedTextBoxCep.Text = endereco.Cep;
+            //textBoxEnderecoCompleto.Text = endereco.EnderecoCompleto;
+            //dateTimePickerHoraAtendimento.Text = endereco.HorarioAtendimento;
         }
 
         private void EnderecosForm_Load(object sender, EventArgs e)
