@@ -49,21 +49,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="jao\BiografiaForm.cs">
+    <Compile Include="jao\Biografia\Biografia.cs" />
+    <Compile Include="jao\Biografia\BiografiaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="jao\BiografiaForm.Designer.cs">
+    <Compile Include="jao\Biografia\BiografiaForm.Designer.cs">
       <DependentUpon>BiografiaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="jao\Endereco.cs" />
-    <Compile Include="jao\EnderecoDadosRequisicao.cs" />
-    <Compile Include="jao\LocadoraFisicaForm.cs">
+    <Compile Include="jao\Biografia\BiografiaServico.cs" />
+    <Compile Include="jao\LocadoraFisica\Endereco.cs" />
+    <Compile Include="jao\LocadoraFisica\EnderecoDadosRequisicao.cs" />
+    <Compile Include="jao\LocadoraFisica\LocadoraFisicaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="jao\LocadoraFisicaForm.designer.cs">
+    <Compile Include="jao\LocadoraFisica\LocadoraFisicaForm.designer.cs">
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="jao\LocadoraFisicaServico.cs" />
+    <Compile Include="jao\LocadoraFisica\LocadoraFisicaServico.cs" />
     <Compile Include="Perez\Cliente.cs" />
     <Compile Include="Prim\Filme.cs" />
     <Compile Include="Prim\FilmeServico.cs" />
@@ -89,10 +91,10 @@
     <Compile Include="Prim\GeneroFilme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="jao\BiografiaForm.resx">
+    <EmbeddedResource Include="jao\Biografia\BiografiaForm.resx">
       <DependentUpon>BiografiaForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="jao\LocadoraFisicaForm.resx">
+    <EmbeddedResource Include="jao\LocadoraFisica\LocadoraFisicaForm.resx">
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perez\ClientesForm.resx">

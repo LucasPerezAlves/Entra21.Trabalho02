@@ -43,6 +43,8 @@
             this.textBoxParcerias = new System.Windows.Forms.TextBox();
             this.labelSinopse = new System.Windows.Forms.Label();
             this.textBoxSinopse = new System.Windows.Forms.TextBox();
+            this.comboBoxLocadora = new System.Windows.Forms.ComboBox();
+            this.labelLocadora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -177,11 +179,30 @@
             this.textBoxSinopse.Size = new System.Drawing.Size(149, 22);
             this.textBoxSinopse.TabIndex = 11;
             // 
+            // comboBoxLocadora
+            // 
+            this.comboBoxLocadora.FormattingEnabled = true;
+            this.comboBoxLocadora.Location = new System.Drawing.Point(415, 290);
+            this.comboBoxLocadora.Name = "comboBoxLocadora";
+            this.comboBoxLocadora.Size = new System.Drawing.Size(149, 24);
+            this.comboBoxLocadora.TabIndex = 12;
+            // 
+            // labelLocadora
+            // 
+            this.labelLocadora.AutoSize = true;
+            this.labelLocadora.Location = new System.Drawing.Point(412, 271);
+            this.labelLocadora.Name = "labelLocadora";
+            this.labelLocadora.Size = new System.Drawing.Size(65, 16);
+            this.labelLocadora.TabIndex = 13;
+            this.labelLocadora.Text = "Locadora";
+            // 
             // BiografiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(694, 450);
+            this.Controls.Add(this.labelLocadora);
+            this.Controls.Add(this.comboBoxLocadora);
             this.Controls.Add(this.textBoxSinopse);
             this.Controls.Add(this.labelSinopse);
             this.Controls.Add(this.textBoxParcerias);
@@ -195,6 +216,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelBiografiaLocadora);
             this.Name = "BiografiaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BiografiaForm";
             this.Load += new System.EventHandler(this.BiografiaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -220,5 +242,7 @@
         private System.Windows.Forms.TextBox textBoxParcerias;
         private System.Windows.Forms.Label labelSinopse;
         private System.Windows.Forms.TextBox textBoxSinopse;
+        private System.Windows.Forms.ComboBox comboBoxLocadora;
+        private System.Windows.Forms.Label labelLocadora;
     }
 }
