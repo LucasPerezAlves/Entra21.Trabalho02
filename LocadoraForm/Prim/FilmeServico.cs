@@ -43,7 +43,7 @@ namespace LocadoraForm.Prim
             }
         }
 
-        private void Apagar(Filme filmeApagar)
+        public void Apagar(Filme filmeApagar)
         {
             for (var i = 0; i < filmes.Count; i++)
             {
@@ -60,7 +60,7 @@ namespace LocadoraForm.Prim
             }
         }
 
-        private List<Filme> ObterTodos()
+        public List<Filme> ObterTodos()
         {
             return filmes;
         }
@@ -105,19 +105,32 @@ namespace LocadoraForm.Prim
             return null;
         }
 
-        private void LerArquivo()
+        public void LerArquivo()
         {
             if (File.Exists("filmes.json") == false)
                 return;
 
             var filmesJson = File.ReadAllText("filmes.json");
-            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson); 
+            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson);
         }
 
-        private void SalvarArquivo()
+        public void SalvarArquivo()
         {
             var filmesJson = JsonConvert.SerializeObject(filmes);
             File.WriteAllText("filmes.json", filmesJson);
+        }
+
+        public Filme ObterFilmePorGenero(string generoFilme)
+        {
+            for (var i = 0; i < filmes.Count; i++)
+            {
+                var filme = filmes[i];
+
+                if (filme.GeneroFilme.ToString() == generoFilme)
+                    return filme;
+            }
+
+            return null;
         }
     }
 }
