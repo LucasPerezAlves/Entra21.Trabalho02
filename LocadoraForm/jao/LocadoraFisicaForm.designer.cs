@@ -42,9 +42,8 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonCadastrar = new System.Windows.Forms.Button();
-            this.maskedTextBoxHorarioAtendimento = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerHoraAtendimento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +68,7 @@
             this.ColumnEnderecoCompleto,
             this.ColumnHorarioAtendimento});
             this.dataGridView1.Location = new System.Drawing.Point(20, 37);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
@@ -111,7 +110,7 @@
             // textBoxEnderecoCompleto
             // 
             this.textBoxEnderecoCompleto.Location = new System.Drawing.Point(527, 105);
-            this.textBoxEnderecoCompleto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEnderecoCompleto.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEnderecoCompleto.Name = "textBoxEnderecoCompleto";
             this.textBoxEnderecoCompleto.Size = new System.Drawing.Size(227, 22);
             this.textBoxEnderecoCompleto.TabIndex = 2;
@@ -119,7 +118,7 @@
             // maskedTextBoxCep
             // 
             this.maskedTextBoxCep.Location = new System.Drawing.Point(527, 57);
-            this.maskedTextBoxCep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.maskedTextBoxCep.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBoxCep.Mask = "99999-999";
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
             this.maskedTextBoxCep.Size = new System.Drawing.Size(160, 22);
@@ -149,7 +148,7 @@
             // buttonApagar
             // 
             this.buttonApagar.Location = new System.Drawing.Point(419, 1);
-            this.buttonApagar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonApagar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(100, 28);
             this.buttonApagar.TabIndex = 6;
@@ -160,7 +159,7 @@
             // buttonEditar
             // 
             this.buttonEditar.Location = new System.Drawing.Point(311, 1);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(100, 28);
             this.buttonEditar.TabIndex = 7;
@@ -171,7 +170,7 @@
             // buttonCancelar
             // 
             this.buttonCancelar.Location = new System.Drawing.Point(695, 485);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(128, 42);
             this.buttonCancelar.TabIndex = 8;
@@ -182,23 +181,13 @@
             // buttonCadastrar
             // 
             this.buttonCadastrar.Location = new System.Drawing.Point(831, 485);
-            this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCadastrar.Name = "buttonCadastrar";
             this.buttonCadastrar.Size = new System.Drawing.Size(128, 42);
             this.buttonCadastrar.TabIndex = 9;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
             this.buttonCadastrar.Click += new System.EventHandler(this.buttonCadastrar_Click);
-            // 
-            // maskedTextBoxHorarioAtendimento
-            // 
-            this.maskedTextBoxHorarioAtendimento.Location = new System.Drawing.Point(527, 153);
-            this.maskedTextBoxHorarioAtendimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.maskedTextBoxHorarioAtendimento.Mask = "00:00";
-            this.maskedTextBoxHorarioAtendimento.Name = "maskedTextBoxHorarioAtendimento";
-            this.maskedTextBoxHorarioAtendimento.Size = new System.Drawing.Size(69, 22);
-            this.maskedTextBoxHorarioAtendimento.TabIndex = 10;
-            this.maskedTextBoxHorarioAtendimento.ValidatingType = typeof(System.DateTime);
             // 
             // label1
             // 
@@ -210,22 +199,21 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Horario de atendemento";
             // 
-            // dateTimePicker1
+            // dateTimePickerHoraAtendimento
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(529, 183);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePickerHoraAtendimento.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerHoraAtendimento.Location = new System.Drawing.Point(526, 152);
+            this.dateTimePickerHoraAtendimento.Name = "dateTimePickerHoraAtendimento";
+            this.dateTimePickerHoraAtendimento.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerHoraAtendimento.TabIndex = 12;
             // 
             // LocadoraFisicaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 542);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerHoraAtendimento);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.maskedTextBoxHorarioAtendimento);
             this.Controls.Add(this.buttonCadastrar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonEditar);
@@ -236,7 +224,7 @@
             this.Controls.Add(this.textBoxEnderecoCompleto);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelLocadoraFisica);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LocadoraFisicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LocadoraFisicaForm";
@@ -258,12 +246,11 @@
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonCadastrar;
-        private System.Windows.Forms.MaskedTextBox maskedTextBoxHorarioAtendimento;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCep;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEnderecoCompleto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHorarioAtendimento;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerHoraAtendimento;
     }
 }
