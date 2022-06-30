@@ -1,6 +1,10 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace LocadoraForm.Perez
 {
@@ -12,25 +16,6 @@ namespace LocadoraForm.Perez
             clientes = new List<Cliente>();
 
             LerArquivo();
-        }
-
-        public List<Cliente> ObterTodos()
-        {
-            return clientes;
-        }
-
-        public Cliente ObterNomeCliente(string nomeCliente)
-        {
-            for(int i = 0; i < clientes.Count; i++)
-            {
-                var cliente = clientes[i];
-
-                if(cliente.Nome == nomeCliente)
-                {
-                    return cliente;
-                }
-            }
-            return null;
         }
 
         public void LerArquivo()
@@ -78,37 +63,6 @@ namespace LocadoraForm.Perez
                 }
             }
             return null;
-        }
-
-        public int ObterUltimoCodigo()
-        {
-            int ultimoCodigo = 0;
-
-            for(int i = 0;i < clientes.Count; i++)
-            {
-                var cliente = clientes[i];
-
-                ultimoCodigo = cliente.Codigo;
-            }
-            return ultimoCodigo;
-        }
-
-        public void Cadastrar(Cliente cliente)
-        {
-            clientes.Add(cliente);
-
-            SalvarArquivo();
-        }
-
-        public void Editar(Cliente clienteParaEditar)
-        {
-            var cliente = ObterPorCodigo(clienteParaEditar);
-
-            cliente.Nome = clienteParaEditar.Nome;
-            cliente.Codigo = clienteParaEditar.Codigo;
-            cliente.Cep = clienteParaEditar.Cep;
-
-            SalvarArquivo();
         }
     }
 

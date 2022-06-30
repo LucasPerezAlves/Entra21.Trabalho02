@@ -18,6 +18,10 @@ namespace LocadoraForm
         {
             textBoxNomeFilme.Clear();
             comboBoxGeneroFilme.SelectedIndex = -1;
+            radioButtonLivre.Checked = false;
+            radioButton12Anos.Checked = false;
+            radioButton16Anos.Checked = false;
+            radioButton18Anos.Checked = false;
         }
 
         private void DadosParaEdicao()
@@ -45,7 +49,15 @@ namespace LocadoraForm
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um filme para editar");
 
+                return;
+            }
+
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
         }
 
         private void buttonApagar_Click(object sender, EventArgs e)
@@ -67,11 +79,6 @@ namespace LocadoraForm
 
                 var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
             }
-        }
-
-        private void comboBoxGeneroFilme_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
