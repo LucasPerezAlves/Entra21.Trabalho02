@@ -65,7 +65,6 @@
     </Compile>
     <Compile Include="jao\LocadoraFisicaServico.cs" />
     <Compile Include="Perez\Cliente.cs" />
-    <Compile Include="Prim\ClassificacaoIndicativa.cs" />
     <Compile Include="Prim\Filme.cs" />
     <Compile Include="Prim\FilmeServico.cs" />
     <Compile Include="Prim\FilmesForm.cs">
