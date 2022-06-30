@@ -43,10 +43,6 @@
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNomeFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGeneroFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassificacaoIndicativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,11 +52,6 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCodigo,
-            this.ColumnNomeFilme,
-            this.ColumnGeneroFilme,
-            this.ColumnClassificacaoIndicativa});
             this.dataGridView1.Location = new System.Drawing.Point(12, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -87,6 +78,7 @@
             this.comboBoxGeneroFilme.Name = "comboBoxGeneroFilme";
             this.comboBoxGeneroFilme.Size = new System.Drawing.Size(227, 21);
             this.comboBoxGeneroFilme.TabIndex = 2;
+            this.comboBoxGeneroFilme.SelectedIndexChanged += new System.EventHandler(this.comboBoxGeneroFilme_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -180,7 +172,6 @@
             this.buttonCancelar.TabIndex = 11;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonSalvar
             // 
@@ -213,31 +204,6 @@
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
-            // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.HeaderText = "Código";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            this.ColumnCodigo.Visible = false;
-            // 
-            // ColumnNomeFilme
-            // 
-            this.ColumnNomeFilme.HeaderText = "Nome do filme";
-            this.ColumnNomeFilme.Name = "ColumnNomeFilme";
-            this.ColumnNomeFilme.ReadOnly = true;
-            // 
-            // ColumnGeneroFilme
-            // 
-            this.ColumnGeneroFilme.HeaderText = "Gênero do filme";
-            this.ColumnGeneroFilme.Name = "ColumnGeneroFilme";
-            this.ColumnGeneroFilme.ReadOnly = true;
-            // 
-            // ColumnClassificacaoIndicativa
-            // 
-            this.ColumnClassificacaoIndicativa.HeaderText = "Classificação indicativa";
-            this.ColumnClassificacaoIndicativa.Name = "ColumnClassificacaoIndicativa";
-            this.ColumnClassificacaoIndicativa.ReadOnly = true;
             // 
             // FilmesForm
             // 
@@ -286,9 +252,5 @@
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNomeFilme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGeneroFilme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassificacaoIndicativa;
     }
 }

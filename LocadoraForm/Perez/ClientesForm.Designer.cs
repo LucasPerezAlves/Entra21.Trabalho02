@@ -29,16 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNome = new System.Windows.Forms.Label();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.radioButtonMaiorIdade = new System.Windows.Forms.RadioButton();
             this.radioButtonMenorIdade = new System.Windows.Forms.RadioButton();
             this.labelCep = new System.Windows.Forms.Label();
-            this.textBoxCep = new System.Windows.Forms.TextBox();
             this.labelEndereco = new System.Windows.Forms.Label();
             this.textBoxEndereco = new System.Windows.Forms.TextBox();
             this.radioButtonMasculino = new System.Windows.Forms.RadioButton();
@@ -47,6 +42,11 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnIdade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maskedTextBoxCep = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,37 +58,13 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnNome,
             this.ColumnEndereco,
-            this.ColumnGenero,
-            this.ColumnSexo});
+            this.ColumnSexo,
+            this.ColumnIdade});
             this.dataGridView1.Location = new System.Drawing.Point(250, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(549, 425);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            // 
-            // ColumnEndereco
-            // 
-            this.ColumnEndereco.HeaderText = "Endereço";
-            this.ColumnEndereco.Name = "ColumnEndereco";
-            this.ColumnEndereco.ReadOnly = true;
-            // 
-            // ColumnGenero
-            // 
-            this.ColumnGenero.HeaderText = "Genêro";
-            this.ColumnGenero.Name = "ColumnGenero";
-            this.ColumnGenero.ReadOnly = true;
-            // 
-            // ColumnSexo
-            // 
-            this.ColumnSexo.HeaderText = "Sexo";
-            this.ColumnSexo.Name = "ColumnSexo";
-            this.ColumnSexo.ReadOnly = true;
             // 
             // labelNome
             // 
@@ -114,13 +90,13 @@
             this.radioButtonMaiorIdade.Name = "radioButtonMaiorIdade";
             this.radioButtonMaiorIdade.Size = new System.Drawing.Size(95, 17);
             this.radioButtonMaiorIdade.TabIndex = 3;
-            this.radioButtonMaiorIdade.TabStop = true;
             this.radioButtonMaiorIdade.Text = "Maior de idade";
             this.radioButtonMaiorIdade.UseVisualStyleBackColor = true;
             // 
             // radioButtonMenorIdade
             // 
             this.radioButtonMenorIdade.AutoSize = true;
+            this.radioButtonMenorIdade.Checked = true;
             this.radioButtonMenorIdade.Location = new System.Drawing.Point(149, 97);
             this.radioButtonMenorIdade.Name = "radioButtonMenorIdade";
             this.radioButtonMenorIdade.Size = new System.Drawing.Size(99, 17);
@@ -137,13 +113,6 @@
             this.labelCep.Size = new System.Drawing.Size(28, 13);
             this.labelCep.TabIndex = 5;
             this.labelCep.Text = "CEP";
-            // 
-            // textBoxCep
-            // 
-            this.textBoxCep.Location = new System.Drawing.Point(12, 94);
-            this.textBoxCep.Name = "textBoxCep";
-            this.textBoxCep.Size = new System.Drawing.Size(131, 20);
-            this.textBoxCep.TabIndex = 6;
             // 
             // labelEndereco
             // 
@@ -168,7 +137,6 @@
             this.radioButtonMasculino.Name = "radioButtonMasculino";
             this.radioButtonMasculino.Size = new System.Drawing.Size(73, 17);
             this.radioButtonMasculino.TabIndex = 9;
-            this.radioButtonMasculino.TabStop = true;
             this.radioButtonMasculino.Text = "Masculino";
             this.radioButtonMasculino.UseVisualStyleBackColor = true;
             // 
@@ -188,7 +156,6 @@
             this.radioButtonFeminino.Name = "radioButtonFeminino";
             this.radioButtonFeminino.Size = new System.Drawing.Size(67, 17);
             this.radioButtonFeminino.TabIndex = 11;
-            this.radioButtonFeminino.TabStop = true;
             this.radioButtonFeminino.Text = "Feminino";
             this.radioButtonFeminino.UseVisualStyleBackColor = true;
             // 
@@ -200,6 +167,7 @@
             this.buttonEditar.TabIndex = 12;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
@@ -209,6 +177,7 @@
             this.buttonApagar.TabIndex = 13;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonSalvar
             // 
@@ -220,11 +189,44 @@
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnEndereco
+            // 
+            this.ColumnEndereco.HeaderText = "Endereço";
+            this.ColumnEndereco.Name = "ColumnEndereco";
+            this.ColumnEndereco.ReadOnly = true;
+            // 
+            // ColumnSexo
+            // 
+            this.ColumnSexo.HeaderText = "Sexo";
+            this.ColumnSexo.Name = "ColumnSexo";
+            this.ColumnSexo.ReadOnly = true;
+            // 
+            // ColumnIdade
+            // 
+            this.ColumnIdade.HeaderText = "Maior/Menor de idade";
+            this.ColumnIdade.Name = "ColumnIdade";
+            this.ColumnIdade.ReadOnly = true;
+            // 
+            // maskedTextBoxCep
+            // 
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(12, 97);
+            this.maskedTextBoxCep.Mask = "99999 -999";
+            this.maskedTextBoxCep.Name = "maskedTextBoxCep";
+            this.maskedTextBoxCep.Size = new System.Drawing.Size(131, 20);
+            this.maskedTextBoxCep.TabIndex = 15;
+            // 
             // ClientesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.maskedTextBoxCep);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
@@ -233,7 +235,6 @@
             this.Controls.Add(this.radioButtonMasculino);
             this.Controls.Add(this.textBoxEndereco);
             this.Controls.Add(this.labelEndereco);
-            this.Controls.Add(this.textBoxCep);
             this.Controls.Add(this.labelCep);
             this.Controls.Add(this.radioButtonMenorIdade);
             this.Controls.Add(this.radioButtonMaiorIdade);
@@ -257,11 +258,6 @@
         private System.Windows.Forms.RadioButton radioButtonMaiorIdade;
         private System.Windows.Forms.RadioButton radioButtonMenorIdade;
         private System.Windows.Forms.Label labelCep;
-        private System.Windows.Forms.TextBox textBoxCep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEndereco;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGenero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSexo;
         private System.Windows.Forms.Label labelEndereco;
         private System.Windows.Forms.TextBox textBoxEndereco;
         private System.Windows.Forms.RadioButton radioButtonMasculino;
@@ -270,5 +266,10 @@
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
         private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEndereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSexo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnIdade;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxCep;
     }
 }

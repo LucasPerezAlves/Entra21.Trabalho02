@@ -21,7 +21,7 @@ namespace LocadoraForm.Prim
         {
             filmes.Add(filme);
 
-            SalvarArquivo();
+            //SALVAR
         }
 
         public void Editar(Filme filmeEditar)
@@ -36,14 +36,14 @@ namespace LocadoraForm.Prim
                     filme.GeneroFilme = filmeEditar.GeneroFilme;
                     filme.ClassificacaoIndicativa = filmeEditar.ClassificacaoIndicativa;
 
-                    SalvarArquivo();
+                    //SALVAR
 
                     return;
                 }
             }
         }
 
-        public void Apagar(Filme filmeApagar)
+        private void Apagar(Filme filmeApagar)
         {
             for (var i = 0; i < filmes.Count; i++)
             {
@@ -53,43 +53,11 @@ namespace LocadoraForm.Prim
                 {
                     filmes.Remove(filme);
 
-                    SalvarArquivo();
+                    //SALVAR
 
                     return;
                 }
             }
-        }
-
-        public List<Filme> ObterTodos()
-        {
-            return filmes;
-        }
-
-        public Filme ObterPorNomeFilme(string nomeFilme)
-        {
-            for (var i = 0; i < filmes.Count; i++)
-            {
-                var filme = filmes[i];
-
-                if (filme.NomeFilme == nomeFilme)
-                    return filme;
-            }
-
-            return null;
-        }
-
-        public int ObterUltimoCodigo()
-        {
-            var ultimoCodigo = 0;
-
-            for (var i = 0; i < filmes.Count; i++)
-            {
-                var filme = filmes[i];
-
-                ultimoCodigo = filme.Codigo;
-            }
-
-            return ultimoCodigo;
         }
 
         public Filme ObterPorCodigo(int codigo)
@@ -105,32 +73,19 @@ namespace LocadoraForm.Prim
             return null;
         }
 
-        public void LerArquivo()
+        private void LerArquivo()
         {
             if (File.Exists("filmes.json") == false)
                 return;
 
             var filmesJson = File.ReadAllText("filmes.json");
-            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson);
+            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson); 
         }
 
-        public void SalvarArquivo()
+        private void SalvarArquivo()
         {
             var filmesJson = JsonConvert.SerializeObject(filmes);
             File.WriteAllText("filmes.json", filmesJson);
-        }
-
-        public Filme ObterFilmePorGenero(string generoFilme)
-        {
-            for (var i = 0; i < filmes.Count; i++)
-            {
-                var filme = filmes[i];
-
-                if (filme.GeneroFilme.ToString() == generoFilme)
-                    return filme;
-            }
-
-            return null;
         }
     }
 }
