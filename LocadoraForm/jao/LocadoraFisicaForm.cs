@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,10 @@ namespace LocadoraForm.jao
         public LocadoraFisicaForm()
         {
             InitializeComponent();
+
+            locadoraFisicaServico = new LocadoraFisicaServico();
+
+            PreencherDataGridViewComEnderecos();
         }
 
         private void buttonCadastrar_Click(object sender, EventArgs e)
@@ -55,11 +60,30 @@ namespace LocadoraForm.jao
             endereco.EnderecoCompleto = enderecoCompleto;
             endereco.Cep = cep;
             endereco.HorarioAtendimento = horarioAtendimento;
+
+            locadoraFisicaServico.Editar(endereco);
         }
 
         private void PreencherDataGridViewComEnderecos()
         {
             var enderecos = locadoraFisicaServico.ObterTodos();
+
+            dataGridView1.Rows.Clear();
+
+            dataGridView1.ClearSelection();
+
+            for(var i = 0;i < enderecos.Count; i++)
+            {
+                var endereco = enderecos[i];
+
+                dataGridView1.Rows.Add(new object[]
+                {
+                    endereco.Codigo,
+                    endereco.EnderecoCompleto,
+                    endereco.Cep,
+                    endereco.HorarioAtendimento
+                });
+            }
         }
 
         private void CadastrarEndereco(string cep, string enderecoCompleto, string horarioAtendimento)
@@ -166,6 +190,17 @@ namespace LocadoraForm.jao
                 return;
             }
 
+            var resposta = MessageBox.Show(
+                "Deseja realmente apagar o endereço?", "Aviso",
+                MessageBoxButtons.YesNo);
+
+            if(resposta == DialogResult.Yes)
+            {
+                MessageBox.Show("Operação executada com sucesso");
+
+                return;
+            }
+
             var linhaSelecionada = dataGridView1.SelectedRows[0];
 
             var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
@@ -189,6 +224,24 @@ namespace LocadoraForm.jao
             }
 
             var httpClient = new HttpClient();
+
+            var resultado = httpClient.GetAsync(
+                $"https://viacep.com.br/ws/{cep}/json/").Result;
+
+            if(resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var resposta = resultado.Content.ReadAsStringAsync().Result;
+
+                var dadosEndereco = JsonConvert.DeserializeObject<EnderecoDadosRequisicao>(resposta);
+
+                textBoxEnderecoCompleto.Text =
+                    $"{dadosEndereco.Uf} - {dadosEndereco.Localidade} - {dadosEndereco.Bairro} - {dadosEndereco.Logradouro}";
+            }
+        }
+
+        private void maskedTextBoxCep_Leave(object sender, EventArgs e)
+        {
+            ObterDadosCep();
         }
     }
 }

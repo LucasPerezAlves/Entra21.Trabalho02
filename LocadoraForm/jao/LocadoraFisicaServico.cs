@@ -11,6 +11,8 @@ namespace LocadoraForm.jao
         public LocadoraFisicaServico()
         {
             enderecos = new List<Endereco>();
+
+            LerArquivo();
         }
 
         public void Adicionar(Endereco endereco)
