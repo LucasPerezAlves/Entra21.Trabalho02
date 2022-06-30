@@ -76,6 +76,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(501, 490);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.TabStop = false;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ColumnCodigo
             // 
@@ -156,6 +157,7 @@
             this.buttonApagar.TabIndex = 6;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
+            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonEditar
             // 
@@ -166,6 +168,7 @@
             this.buttonEditar.TabIndex = 7;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonCancelar
             // 
