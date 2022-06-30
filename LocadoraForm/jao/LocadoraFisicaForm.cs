@@ -37,8 +37,8 @@ namespace LocadoraForm.jao
 
                 CadastrarEndereco(cep, enderecoCompleto, horarioAtendimento);
 
-            //else
-            //    EditarEndereco(cep, enderecoCompleto, horarioAtendimento);
+            else
+                EditarEndereco(cep, enderecoCompleto, horarioAtendimento);
 
             PreencherDataGridViewComEnderecos();
 
