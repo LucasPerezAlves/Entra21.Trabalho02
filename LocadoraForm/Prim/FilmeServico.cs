@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 // LINHAS COMENTADAS FAZER CORREÇÃO
 
@@ -21,7 +21,7 @@ namespace LocadoraForm.Prim
         {
             filmes.Add(filme);
 
-            //SALVAR
+            SalvarArquivo();
         }
 
         public void Editar(Filme filmeEditar)
@@ -36,14 +36,14 @@ namespace LocadoraForm.Prim
                     filme.GeneroFilme = filmeEditar.GeneroFilme;
                     filme.ClassificacaoIndicativa = filmeEditar.ClassificacaoIndicativa;
 
-                    //SALVAR
+                    SalvarArquivo();
 
                     return;
                 }
             }
         }
 
-        private void Apagar(Filme filmeApagar)
+        public void Apagar(Filme filmeApagar)
         {
             for (var i = 0; i < filmes.Count; i++)
             {
@@ -53,11 +53,16 @@ namespace LocadoraForm.Prim
                 {
                     filmes.Remove(filme);
 
-                    //SALVAR
+                    SalvarArquivo();
 
                     return;
                 }
             }
+        }
+
+        public List<Filme> ObterTodos()
+        {
+            return filmes;
         }
 
         public Filme ObterPorCodigo(int codigo)
@@ -73,13 +78,26 @@ namespace LocadoraForm.Prim
             return null;
         }
 
+        public int ObterUltimoCodigo()
+        {
+            var ultimoCodigo = 0;
+
+            for (var i = 0; i < filmes.Count; i++)
+            {
+                var filme = filmes[i];
+
+                ultimoCodigo = filme.Codigo;
+            }
+            return ultimoCodigo;
+        }
+
         private void LerArquivo()
         {
             if (File.Exists("filmes.json") == false)
                 return;
 
             var filmesJson = File.ReadAllText("filmes.json");
-            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson); 
+            filmes = JsonConvert.DeserializeObject<List<Filme>>(filmesJson);
         }
 
         private void SalvarArquivo()

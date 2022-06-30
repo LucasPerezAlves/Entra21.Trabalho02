@@ -1,7 +1,8 @@
-﻿using LocadoraForm.Prim;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using LocadoraForm.Prim;
 
+// LINHAS COMENTADAS, FAZER CORREÇÃO
 namespace LocadoraForm
 {
     public partial class FilmesForm : Form
@@ -17,25 +18,11 @@ namespace LocadoraForm
         private void LimparCampos()
         {
             textBoxNomeFilme.Clear();
-            comboBoxGeneroFilme.SelectedIndex = -1;
-        }
-
-        private void DadosParaEdicao()
-        {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Selecione o filme que deseja editar");
-
-                return;
-            }
-
-            var linhaSelecionada = dataGridView1.SelectedRows[0];
-
-            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-
-            var filme = filmeServico.ObterPorCodigo(codigo);
-
-            textBoxNomeFilme.Text = filme.NomeFilme;
+            comboBoxGeneroFilme.ResetText();
+            radioButtonLivre.Checked = false;
+            radioButton12Anos.Checked = false;
+            radioButton16Anos.Checked = false;
+            radioButton18Anos.Checked = false;
         }
 
         private void FilmesForm_Load(object sender, EventArgs e)
@@ -73,5 +60,37 @@ namespace LocadoraForm
         {
 
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+            var nomeFilme = textBoxNomeFilme.Text;
+            var generoFilme = comboBoxGeneroFilme.SelectedItem.ToString();
+            //var classificacaoIndicativa = radioButtonLivre.Checked;
+        }
+
+        private void DadosParaEditar()
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um filme que deseja editar");
+
+                return;
+            }
+
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            var filme = filmeServico.ObterPorCodigo(codigo);
+
+            textBoxNomeFilme.Text = filme.NomeFilme;
+            comboBoxGeneroFilme.Text = filme.GeneroFilme.ToString();
+            //radioButtonLivre
+        }
+
+
     }
 }

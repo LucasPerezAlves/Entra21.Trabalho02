@@ -34,15 +34,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNomeFilme = new System.Windows.Forms.TextBox();
-            this.radioButtonLivre = new System.Windows.Forms.RadioButton();
-            this.radioButton12Anos = new System.Windows.Forms.RadioButton();
-            this.radioButton16Anos = new System.Windows.Forms.RadioButton();
-            this.radioButton18Anos = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
+            this.radioButtonLivre = new System.Windows.Forms.RadioButton();
+            this.radioButton12Anos = new System.Windows.Forms.RadioButton();
+            this.radioButton16Anos = new System.Windows.Forms.RadioButton();
+            this.radioButton18Anos = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,52 +107,6 @@
             this.textBoxNomeFilme.Size = new System.Drawing.Size(227, 20);
             this.textBoxNomeFilme.TabIndex = 5;
             // 
-            // radioButtonLivre
-            // 
-            this.radioButtonLivre.AutoSize = true;
-            this.radioButtonLivre.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButtonLivre.Location = new System.Drawing.Point(384, 143);
-            this.radioButtonLivre.Name = "radioButtonLivre";
-            this.radioButtonLivre.Size = new System.Drawing.Size(49, 18);
-            this.radioButtonLivre.TabIndex = 6;
-            this.radioButtonLivre.TabStop = true;
-            this.radioButtonLivre.Text = "Livre";
-            this.radioButtonLivre.UseVisualStyleBackColor = true;
-            // 
-            // radioButton12Anos
-            // 
-            this.radioButton12Anos.AutoSize = true;
-            this.radioButton12Anos.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton12Anos.Location = new System.Drawing.Point(384, 167);
-            this.radioButton12Anos.Name = "radioButton12Anos";
-            this.radioButton12Anos.Size = new System.Drawing.Size(65, 18);
-            this.radioButton12Anos.TabIndex = 7;
-            this.radioButton12Anos.TabStop = true;
-            this.radioButton12Anos.Text = "12 Anos";
-            this.radioButton12Anos.UseVisualStyleBackColor = true;
-            // 
-            // radioButton16Anos
-            // 
-            this.radioButton16Anos.AutoSize = true;
-            this.radioButton16Anos.Location = new System.Drawing.Point(384, 191);
-            this.radioButton16Anos.Name = "radioButton16Anos";
-            this.radioButton16Anos.Size = new System.Drawing.Size(64, 17);
-            this.radioButton16Anos.TabIndex = 8;
-            this.radioButton16Anos.TabStop = true;
-            this.radioButton16Anos.Text = "16 Anos";
-            this.radioButton16Anos.UseVisualStyleBackColor = true;
-            // 
-            // radioButton18Anos
-            // 
-            this.radioButton18Anos.AutoSize = true;
-            this.radioButton18Anos.Location = new System.Drawing.Point(384, 214);
-            this.radioButton18Anos.Name = "radioButton18Anos";
-            this.radioButton18Anos.Size = new System.Drawing.Size(64, 17);
-            this.radioButton18Anos.TabIndex = 9;
-            this.radioButton18Anos.TabStop = true;
-            this.radioButton18Anos.Text = "18 Anos";
-            this.radioButton18Anos.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -172,6 +126,7 @@
             this.buttonCancelar.TabIndex = 11;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonSalvar
             // 
@@ -182,6 +137,7 @@
             this.buttonSalvar.TabIndex = 12;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonEditar
             // 
@@ -205,21 +161,65 @@
             this.buttonApagar.UseVisualStyleBackColor = true;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
+            // radioButtonLivre
+            // 
+            this.radioButtonLivre.AutoSize = true;
+            this.radioButtonLivre.Location = new System.Drawing.Point(384, 144);
+            this.radioButtonLivre.Name = "radioButtonLivre";
+            this.radioButtonLivre.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonLivre.TabIndex = 15;
+            this.radioButtonLivre.TabStop = true;
+            this.radioButtonLivre.Text = "Livre";
+            this.radioButtonLivre.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12Anos
+            // 
+            this.radioButton12Anos.AutoSize = true;
+            this.radioButton12Anos.Location = new System.Drawing.Point(384, 167);
+            this.radioButton12Anos.Name = "radioButton12Anos";
+            this.radioButton12Anos.Size = new System.Drawing.Size(64, 17);
+            this.radioButton12Anos.TabIndex = 16;
+            this.radioButton12Anos.TabStop = true;
+            this.radioButton12Anos.Text = "12 Anos";
+            this.radioButton12Anos.UseVisualStyleBackColor = true;
+            // 
+            // radioButton16Anos
+            // 
+            this.radioButton16Anos.AutoSize = true;
+            this.radioButton16Anos.Location = new System.Drawing.Point(384, 190);
+            this.radioButton16Anos.Name = "radioButton16Anos";
+            this.radioButton16Anos.Size = new System.Drawing.Size(64, 17);
+            this.radioButton16Anos.TabIndex = 17;
+            this.radioButton16Anos.TabStop = true;
+            this.radioButton16Anos.Text = "16 Anos";
+            this.radioButton16Anos.UseVisualStyleBackColor = true;
+            // 
+            // radioButton18Anos
+            // 
+            this.radioButton18Anos.AutoSize = true;
+            this.radioButton18Anos.Location = new System.Drawing.Point(384, 213);
+            this.radioButton18Anos.Name = "radioButton18Anos";
+            this.radioButton18Anos.Size = new System.Drawing.Size(64, 17);
+            this.radioButton18Anos.TabIndex = 18;
+            this.radioButton18Anos.TabStop = true;
+            this.radioButton18Anos.Text = "18 Anos";
+            this.radioButton18Anos.UseVisualStyleBackColor = true;
+            // 
             // FilmesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(625, 311);
+            this.Controls.Add(this.radioButton18Anos);
+            this.Controls.Add(this.radioButton16Anos);
+            this.Controls.Add(this.radioButton12Anos);
+            this.Controls.Add(this.radioButtonLivre);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.radioButton18Anos);
-            this.Controls.Add(this.radioButton16Anos);
-            this.Controls.Add(this.radioButton12Anos);
-            this.Controls.Add(this.radioButtonLivre);
             this.Controls.Add(this.textBoxNomeFilme);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -243,14 +243,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNomeFilme;
-        private System.Windows.Forms.RadioButton radioButtonLivre;
-        private System.Windows.Forms.RadioButton radioButton12Anos;
-        private System.Windows.Forms.RadioButton radioButton16Anos;
-        private System.Windows.Forms.RadioButton radioButton18Anos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
+        private System.Windows.Forms.RadioButton radioButtonLivre;
+        private System.Windows.Forms.RadioButton radioButton12Anos;
+        private System.Windows.Forms.RadioButton radioButton16Anos;
+        private System.Windows.Forms.RadioButton radioButton18Anos;
     }
 }
