@@ -46,16 +46,16 @@
             this.dateTimePickerHoraAtendimento = new System.Windows.Forms.DateTimePicker();
             this.textBoxNomeLocadora = new System.Windows.Forms.TextBox();
             this.labelNomeLocadora = new System.Windows.Forms.Label();
+            this.ColumnNomeLocadora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelLocadoraFisica
             // 
             this.labelLocadoraFisica.AutoSize = true;
-            this.labelLocadoraFisica.Location = new System.Drawing.Point(16, 15);
-            this.labelLocadoraFisica.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelLocadoraFisica.Location = new System.Drawing.Point(12, 12);
             this.labelLocadoraFisica.Name = "labelLocadoraFisica";
-            this.labelLocadoraFisica.Size = new System.Drawing.Size(118, 16);
+            this.labelLocadoraFisica.Size = new System.Drawing.Size(94, 13);
             this.labelLocadoraFisica.TabIndex = 0;
             this.labelLocadoraFisica.Text = "Locadoras Físicas";
             // 
@@ -68,14 +68,14 @@
             this.ColumnCodigo,
             this.ColumnCep,
             this.ColumnEnderecoCompleto,
-            this.ColumnHorarioAtendimento});
-            this.dataGridView1.Location = new System.Drawing.Point(20, 37);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.ColumnHorarioAtendimento,
+            this.ColumnNomeLocadora});
+            this.dataGridView1.Location = new System.Drawing.Point(15, 30);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(501, 490);
+            this.dataGridView1.Size = new System.Drawing.Size(372, 398);
             this.dataGridView1.TabIndex = 1;
             // 
             // ColumnCodigo
@@ -112,49 +112,44 @@
             // 
             // textBoxEnderecoCompleto
             // 
-            this.textBoxEnderecoCompleto.Location = new System.Drawing.Point(526, 147);
-            this.textBoxEnderecoCompleto.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxEnderecoCompleto.Location = new System.Drawing.Point(394, 119);
             this.textBoxEnderecoCompleto.Name = "textBoxEnderecoCompleto";
-            this.textBoxEnderecoCompleto.Size = new System.Drawing.Size(227, 22);
+            this.textBoxEnderecoCompleto.Size = new System.Drawing.Size(171, 20);
             this.textBoxEnderecoCompleto.TabIndex = 2;
             // 
             // maskedTextBoxCep
             // 
-            this.maskedTextBoxCep.Location = new System.Drawing.Point(527, 101);
-            this.maskedTextBoxCep.Margin = new System.Windows.Forms.Padding(4);
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(395, 82);
             this.maskedTextBoxCep.Mask = "99999-999";
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
-            this.maskedTextBoxCep.Size = new System.Drawing.Size(160, 22);
+            this.maskedTextBoxCep.Size = new System.Drawing.Size(121, 20);
             this.maskedTextBoxCep.TabIndex = 3;
             this.maskedTextBoxCep.Leave += new System.EventHandler(this.maskedTextBoxCep_Leave);
             // 
             // labelCep
             // 
             this.labelCep.AutoSize = true;
-            this.labelCep.Location = new System.Drawing.Point(524, 81);
-            this.labelCep.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCep.Location = new System.Drawing.Point(393, 66);
             this.labelCep.Name = "labelCep";
-            this.labelCep.Size = new System.Drawing.Size(34, 16);
+            this.labelCep.Size = new System.Drawing.Size(28, 13);
             this.labelCep.TabIndex = 4;
             this.labelCep.Text = "CEP";
             // 
             // labelEnderecoCompleto
             // 
             this.labelEnderecoCompleto.AutoSize = true;
-            this.labelEnderecoCompleto.Location = new System.Drawing.Point(524, 127);
-            this.labelEnderecoCompleto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEnderecoCompleto.Location = new System.Drawing.Point(393, 103);
             this.labelEnderecoCompleto.Name = "labelEnderecoCompleto";
-            this.labelEnderecoCompleto.Size = new System.Drawing.Size(125, 16);
+            this.labelEnderecoCompleto.Size = new System.Drawing.Size(99, 13);
             this.labelEnderecoCompleto.TabIndex = 5;
             this.labelEnderecoCompleto.Text = "Endereço completo";
             this.labelEnderecoCompleto.Click += new System.EventHandler(this.labelEndereco_Click);
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(419, 1);
-            this.buttonApagar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonApagar.Location = new System.Drawing.Point(314, 1);
             this.buttonApagar.Name = "buttonApagar";
-            this.buttonApagar.Size = new System.Drawing.Size(100, 28);
+            this.buttonApagar.Size = new System.Drawing.Size(75, 23);
             this.buttonApagar.TabIndex = 6;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
@@ -162,10 +157,9 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(311, 1);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonEditar.Location = new System.Drawing.Point(233, 1);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(100, 28);
+            this.buttonEditar.Size = new System.Drawing.Size(75, 23);
             this.buttonEditar.TabIndex = 7;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
@@ -173,10 +167,9 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(695, 485);
-            this.buttonCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCancelar.Location = new System.Drawing.Point(521, 394);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(128, 42);
+            this.buttonCancelar.Size = new System.Drawing.Size(96, 34);
             this.buttonCancelar.TabIndex = 8;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
@@ -184,10 +177,9 @@
             // 
             // buttonCadastrar
             // 
-            this.buttonCadastrar.Location = new System.Drawing.Point(831, 485);
-            this.buttonCadastrar.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCadastrar.Location = new System.Drawing.Point(623, 394);
             this.buttonCadastrar.Name = "buttonCadastrar";
-            this.buttonCadastrar.Size = new System.Drawing.Size(128, 42);
+            this.buttonCadastrar.Size = new System.Drawing.Size(96, 34);
             this.buttonCadastrar.TabIndex = 9;
             this.buttonCadastrar.Text = "Cadastrar";
             this.buttonCadastrar.UseVisualStyleBackColor = true;
@@ -196,42 +188,50 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(523, 173);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(392, 141);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 16);
+            this.label1.Size = new System.Drawing.Size(121, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Horario de atendemento";
             // 
             // dateTimePickerHoraAtendimento
             // 
             this.dateTimePickerHoraAtendimento.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraAtendimento.Location = new System.Drawing.Point(526, 192);
+            this.dateTimePickerHoraAtendimento.Location = new System.Drawing.Point(394, 156);
+            this.dateTimePickerHoraAtendimento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerHoraAtendimento.Name = "dateTimePickerHoraAtendimento";
-            this.dateTimePickerHoraAtendimento.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerHoraAtendimento.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerHoraAtendimento.TabIndex = 12;
             // 
             // textBoxNomeLocadora
             // 
-            this.textBoxNomeLocadora.Location = new System.Drawing.Point(526, 56);
+            this.textBoxNomeLocadora.Location = new System.Drawing.Point(394, 46);
+            this.textBoxNomeLocadora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNomeLocadora.Name = "textBoxNomeLocadora";
-            this.textBoxNomeLocadora.Size = new System.Drawing.Size(161, 22);
+            this.textBoxNomeLocadora.Size = new System.Drawing.Size(122, 20);
             this.textBoxNomeLocadora.TabIndex = 13;
             // 
             // labelNomeLocadora
             // 
             this.labelNomeLocadora.AutoSize = true;
-            this.labelNomeLocadora.Location = new System.Drawing.Point(523, 37);
+            this.labelNomeLocadora.Location = new System.Drawing.Point(392, 30);
+            this.labelNomeLocadora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNomeLocadora.Name = "labelNomeLocadora";
-            this.labelNomeLocadora.Size = new System.Drawing.Size(124, 16);
+            this.labelNomeLocadora.Size = new System.Drawing.Size(98, 13);
             this.labelNomeLocadora.TabIndex = 14;
             this.labelNomeLocadora.Text = "Nome da Locadora";
             // 
+            // ColumnNomeLocadora
+            // 
+            this.ColumnNomeLocadora.HeaderText = "Nome da Locadora";
+            this.ColumnNomeLocadora.Name = "ColumnNomeLocadora";
+            this.ColumnNomeLocadora.ReadOnly = true;
+            // 
             // LocadoraFisicaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 542);
+            this.ClientSize = new System.Drawing.Size(731, 440);
             this.Controls.Add(this.labelNomeLocadora);
             this.Controls.Add(this.textBoxNomeLocadora);
             this.Controls.Add(this.dateTimePickerHoraAtendimento);
@@ -246,7 +246,6 @@
             this.Controls.Add(this.textBoxEnderecoCompleto);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelLocadoraFisica);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LocadoraFisicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Locadoras Fisicas";
@@ -277,5 +276,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraAtendimento;
         private System.Windows.Forms.TextBox textBoxNomeLocadora;
         private System.Windows.Forms.Label labelNomeLocadora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNomeLocadora;
     }
 }
