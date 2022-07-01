@@ -66,6 +66,12 @@
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="jao\LocadoraFisica\LocadoraFisicaServico.cs" />
+    <Compile Include="Perez\CatalogoFilmesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Perez\CatalogoFilmesForm.Designer.cs">
+      <DependentUpon>CatalogoFilmesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Perez\Cliente.cs" />
     <Compile Include="Prim\FeedbackForm.cs">
       <SubType>Form</SubType>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="jao\LocadoraFisica\LocadoraFisicaForm.resx">
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Perez\CatalogoFilmesForm.resx">
+      <DependentUpon>CatalogoFilmesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perez\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>

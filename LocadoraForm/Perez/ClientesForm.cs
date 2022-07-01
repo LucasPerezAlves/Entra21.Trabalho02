@@ -47,6 +47,7 @@ namespace LocadoraForm.Perez
 
         private void EditarDados(string nome, string cep)
         {
+
             var cliente = new Cliente();
             cliente.Nome = nome;
             cliente.Cep = cep;
@@ -77,6 +78,7 @@ namespace LocadoraForm.Perez
 
             ListarClientes();
         }
+
         private void textBoxNome_TextChanged(object sender, EventArgs e)
         {
 
@@ -94,12 +96,9 @@ namespace LocadoraForm.Perez
                 return;
 
             if (dataGridView1.SelectedRows.Count == 0)
-            {
-                AdicionarCliente(nome, cep, enderecoCompleto);
-
-                return;
-            }
-            EditarDados(nome, cep);
+                CadastrarEnderecos(cep, enderecoCompleto);
+            else
+                EditarDados(nome, cep);
 
             PreencherDataGridViewComEnderecos();
 
@@ -113,29 +112,38 @@ namespace LocadoraForm.Perez
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Selecione um paciente");
-                return;
-            }
-
-            var linhaSelecionada = dataGridView1.SelectedRows[0];
-            var nome = linhaSelecionada.Cells[1].Value.ToString();
-
-            textBoxNome.Text = nome;
+            ApresentarDadosParaEdicao();
 
         }
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-           if(dataGridView1.SelectedRows.Count == 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Selecione um cliente para remover");
                 return;
             }
 
             var resposta = MessageBox.Show("Deseja realmente apagar o endereço?", "Aviso", MessageBoxButtons.YesNo);
-            
+
+            if (resposta != DialogResult.Yes)
+            {
+                MessageBox.Show("Teu codigo esta ai");
+                return;
+            }
+
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var cliente = clienteServico.ObterPorCodigo(codigo);
+
+            //clienteServico.Apagar(cliente);
+
+            PreencherDataGridViewComEnderecos();
+
+            dataGridView1.ClearSelection();
+
         }
 
         private void ObterCep()
@@ -152,9 +160,9 @@ namespace LocadoraForm.Perez
             if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var resposta = resultado.Content.ReadAsStringAsync().Result;
-                var dadosEnderecos = JsonConvert.DeserializeObject<EnderecosDadosRequisitados>(resposta);
+                var dadosenderecos = JsonConvert.DeserializeObject<EnderecosDadosRequisitados>(resposta);
 
-                textBoxEndereco.Text = $"{dadosEnderecos.Uf} - {dadosEnderecos.Localidade} - {dadosEnderecos.Bairro} - {dadosEnderecos.Logradouro}";
+                textBoxEndereco.Text = $"{dadosenderecos.uf} - {dadosenderecos.localidade} - {dadosenderecos.bairro} - {dadosenderecos.logradouro}";
             }
         }
 
@@ -170,7 +178,7 @@ namespace LocadoraForm.Perez
 
         private bool ValidarDados(string cep, string enderecoCompleto)
         {
-            if(cep.Replace("-", "").Trim().Length != 8)
+            if (cep.Replace("-", "").Trim().Length != 8)
             {
                 MessageBox.Show("CEP inválido");
 
@@ -179,7 +187,7 @@ namespace LocadoraForm.Perez
                 return false;
             }
 
-            if(enderecoCompleto.Trim().Length < 10)
+            if (enderecoCompleto.Trim().Length < 10)
             {
                 MessageBox.Show("O endereço completo deve ter no minimo 10 caracteres");
 
@@ -213,7 +221,7 @@ namespace LocadoraForm.Perez
             dataGridView1.Rows.Clear();
             dataGridView1.ClearSelection();
 
-            for(var i = 0; i < enderecos.Count; i++)
+            for (var i = 0; i < enderecos.Count; i++)
             {
                 var endereco = enderecos[i];
 
@@ -225,6 +233,28 @@ namespace LocadoraForm.Perez
                     endereco.Codigo
                 });
             }
+        }
+
+        private void ApresentarDadosParaEdicao()
+        {
+            if(dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um paciente para editar");
+                return;
+            }
+
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            var clientes = clienteServico.ObterPorCodigo(codigo);
+
+            maskedTextBoxCep.Text = clientes.Cep;
+            textBoxNome.Text = clientes.Nome;
+
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
         }
     }
 }
