@@ -64,6 +64,21 @@ namespace LocadoraForm.jao
             return enderecos;
         }
 
+        public Endereco ObterPorNomeLocadora(string nomeLocadora)
+        {
+            for(int i = 0; i < enderecos.Count; i++)
+            {
+                var endereco = enderecos[i];
+
+                if(endereco.NomeLocadora == nomeLocadora)
+                {
+                    return endereco;
+                }
+            }
+
+            return null;
+        }
+
         public Endereco ObterPorCodigo(int codigo)
         {
             for (var i = 0;i < enderecos.Count; i++)
