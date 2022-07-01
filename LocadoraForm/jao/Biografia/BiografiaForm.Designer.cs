@@ -45,6 +45,7 @@
             this.textBoxSinopse = new System.Windows.Forms.TextBox();
             this.comboBoxLocadora = new System.Windows.Forms.ComboBox();
             this.labelLocadora = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,11 +197,21 @@
             this.labelLocadora.TabIndex = 13;
             this.labelLocadora.Text = "Locadora";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(326, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Editar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // BiografiaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelLocadora);
             this.Controls.Add(this.comboBoxLocadora);
             this.Controls.Add(this.textBoxSinopse);
@@ -244,5 +255,6 @@
         private System.Windows.Forms.TextBox textBoxSinopse;
         private System.Windows.Forms.ComboBox comboBoxLocadora;
         private System.Windows.Forms.Label labelLocadora;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -33,6 +33,7 @@ namespace LocadoraForm.jao
                     endereco.EnderecoCompleto = enderecoParaAlterar.EnderecoCompleto;
                     endereco.Cep = enderecoParaAlterar.Cep;
                     endereco.HorarioAtendimento = enderecoParaAlterar.HorarioAtendimento;
+                    endereco.NomeLocadora = enderecoParaAlterar.NomeLocadora;
 
                     SalvarArquivo();
 

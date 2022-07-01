@@ -12,5 +12,6 @@ namespace LocadoraForm.jao
         public string EnderecoCompleto;
         public string Cep;
         public string HorarioAtendimento;
+        public string NomeLocadora;
     }
 }
