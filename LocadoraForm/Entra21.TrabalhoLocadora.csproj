@@ -108,6 +108,9 @@
     <EmbeddedResource Include="jao\LocadoraFisica\LocadoraFisicaForm.resx">
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LocadoraForm.resx">
+      <DependentUpon>LocadoraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Perez\CatalogoFilmesForm.resx">
       <DependentUpon>CatalogoFilmesForm.cs</DependentUpon>
     </EmbeddedResource>
