@@ -44,6 +44,8 @@
             this.buttonCadastrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerHoraAtendimento = new System.Windows.Forms.DateTimePicker();
+            this.textBoxNomeLocadora = new System.Windows.Forms.TextBox();
+            this.labelNomeLocadora = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +74,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(501, 490);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -109,7 +112,7 @@
             // 
             // textBoxEnderecoCompleto
             // 
-            this.textBoxEnderecoCompleto.Location = new System.Drawing.Point(527, 105);
+            this.textBoxEnderecoCompleto.Location = new System.Drawing.Point(526, 147);
             this.textBoxEnderecoCompleto.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEnderecoCompleto.Name = "textBoxEnderecoCompleto";
             this.textBoxEnderecoCompleto.Size = new System.Drawing.Size(227, 22);
@@ -117,17 +120,18 @@
             // 
             // maskedTextBoxCep
             // 
-            this.maskedTextBoxCep.Location = new System.Drawing.Point(527, 57);
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(527, 101);
             this.maskedTextBoxCep.Margin = new System.Windows.Forms.Padding(4);
             this.maskedTextBoxCep.Mask = "99999-999";
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
             this.maskedTextBoxCep.Size = new System.Drawing.Size(160, 22);
             this.maskedTextBoxCep.TabIndex = 3;
+            this.maskedTextBoxCep.Leave += new System.EventHandler(this.maskedTextBoxCep_Leave);
             // 
             // labelCep
             // 
             this.labelCep.AutoSize = true;
-            this.labelCep.Location = new System.Drawing.Point(527, 37);
+            this.labelCep.Location = new System.Drawing.Point(524, 81);
             this.labelCep.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelCep.Name = "labelCep";
             this.labelCep.Size = new System.Drawing.Size(34, 16);
@@ -137,7 +141,7 @@
             // labelEnderecoCompleto
             // 
             this.labelEnderecoCompleto.AutoSize = true;
-            this.labelEnderecoCompleto.Location = new System.Drawing.Point(523, 85);
+            this.labelEnderecoCompleto.Location = new System.Drawing.Point(524, 127);
             this.labelEnderecoCompleto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEnderecoCompleto.Name = "labelEnderecoCompleto";
             this.labelEnderecoCompleto.Size = new System.Drawing.Size(125, 16);
@@ -192,7 +196,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(523, 133);
+            this.label1.Location = new System.Drawing.Point(523, 173);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 16);
@@ -202,16 +206,34 @@
             // dateTimePickerHoraAtendimento
             // 
             this.dateTimePickerHoraAtendimento.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePickerHoraAtendimento.Location = new System.Drawing.Point(526, 152);
+            this.dateTimePickerHoraAtendimento.Location = new System.Drawing.Point(526, 192);
             this.dateTimePickerHoraAtendimento.Name = "dateTimePickerHoraAtendimento";
             this.dateTimePickerHoraAtendimento.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerHoraAtendimento.TabIndex = 12;
+            // 
+            // textBoxNomeLocadora
+            // 
+            this.textBoxNomeLocadora.Location = new System.Drawing.Point(526, 56);
+            this.textBoxNomeLocadora.Name = "textBoxNomeLocadora";
+            this.textBoxNomeLocadora.Size = new System.Drawing.Size(161, 22);
+            this.textBoxNomeLocadora.TabIndex = 13;
+            // 
+            // labelNomeLocadora
+            // 
+            this.labelNomeLocadora.AutoSize = true;
+            this.labelNomeLocadora.Location = new System.Drawing.Point(523, 37);
+            this.labelNomeLocadora.Name = "labelNomeLocadora";
+            this.labelNomeLocadora.Size = new System.Drawing.Size(124, 16);
+            this.labelNomeLocadora.TabIndex = 14;
+            this.labelNomeLocadora.Text = "Nome da Locadora";
             // 
             // LocadoraFisicaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(975, 542);
+            this.Controls.Add(this.labelNomeLocadora);
+            this.Controls.Add(this.textBoxNomeLocadora);
             this.Controls.Add(this.dateTimePickerHoraAtendimento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCadastrar);
@@ -227,7 +249,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LocadoraFisicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LocadoraFisicaForm";
+            this.Text = "Locadoras Fisicas";
+            this.Load += new System.EventHandler(this.LocadoraFisicaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,5 +275,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEnderecoCompleto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnHorarioAtendimento;
         private System.Windows.Forms.DateTimePicker dateTimePickerHoraAtendimento;
+        private System.Windows.Forms.TextBox textBoxNomeLocadora;
+        private System.Windows.Forms.Label labelNomeLocadora;
     }
 }

@@ -33,6 +33,7 @@ namespace LocadoraForm.jao
                     endereco.EnderecoCompleto = enderecoParaAlterar.EnderecoCompleto;
                     endereco.Cep = enderecoParaAlterar.Cep;
                     endereco.HorarioAtendimento = enderecoParaAlterar.HorarioAtendimento;
+                    endereco.NomeLocadora = enderecoParaAlterar.NomeLocadora;
 
                     SalvarArquivo();
 
@@ -91,17 +92,17 @@ namespace LocadoraForm.jao
 
         private void SalvarArquivo()
         {
-            var enderecoEmJson = JsonConvert.SerializeObject(enderecos);
-            File.WriteAllText("enderecoLocadoraFisica.json", enderecoEmJson);
+            var locadoraFisicaEmJson = JsonConvert.SerializeObject(enderecos);
+            File.WriteAllText("enderecoLocadoraFisica.json", locadoraFisicaEmJson);
         }
 
         public void LerArquivo()
         {
-            if (File.Exists("locadorasFisicas.json") == false)
+            if (File.Exists("enderecoLocadoraFisica.json") == false)
                 return;
 
-            var enderecoEmJson = File.ReadAllText("locadoraFisica.json");
-            enderecos = JsonConvert.DeserializeObject<List<Endereco>>(enderecoEmJson);
+            var locadoraFisicaEmJson = File.ReadAllText("enderecoLocadoraFisica.json");
+            enderecos = JsonConvert.DeserializeObject<List<Endereco>>(locadoraFisicaEmJson);
         }
     }
 }

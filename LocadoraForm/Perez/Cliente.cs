@@ -4,6 +4,7 @@
     {
         public int Codigo;
         public string Nome;
-        public int Cep;
+        public string Cep;
+        public string EnderecoCompleto;
     }
 }

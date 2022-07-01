@@ -29,9 +29,10 @@ namespace LocadoraForm.jao
         {
             var cep = maskedTextBoxCep.Text;
             var enderecoCompleto = textBoxEnderecoCompleto.Text;
-            var horarioAtendimento = dateTimePickerHoraAtendimento.Text;
+            var horarioAtendimento = dateTimePickerHoraAtendimento.Value.ToString("HH:mm");
+            var nomeLocadora = textBoxNomeLocadora.Text;
 
-            var dadosValidos = ValidarDados(cep, enderecoCompleto, horarioAtendimento);
+            var dadosValidos = ValidarDados(cep, enderecoCompleto, horarioAtendimento, nomeLocadora);
 
             if (dadosValidos == false)
             {
@@ -40,17 +41,17 @@ namespace LocadoraForm.jao
 
             if (dataGridView1.SelectedRows.Count == 0)
 
-                CadastrarEndereco(cep, enderecoCompleto, horarioAtendimento);
+                CadastrarEndereco(cep, enderecoCompleto, horarioAtendimento, nomeLocadora);
 
             else
-                EditarEndereco(cep, enderecoCompleto, horarioAtendimento);
+                EditarEndereco(cep, enderecoCompleto, horarioAtendimento, nomeLocadora);
 
             PreencherDataGridViewComEnderecos();
 
             LimparCampos();
         }
 
-        private void EditarEndereco(string cep, string enderecoCompleto, string horarioAtendimento)
+        private void EditarEndereco(string cep, string enderecoCompleto, string horarioAtendimento, string nomeLocadora)
         {
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
@@ -60,6 +61,7 @@ namespace LocadoraForm.jao
             endereco.EnderecoCompleto = enderecoCompleto;
             endereco.Cep = cep;
             endereco.HorarioAtendimento = horarioAtendimento;
+            endereco.NomeLocadora = nomeLocadora;
 
             locadoraFisicaServico.Editar(endereco);
         }
@@ -81,23 +83,25 @@ namespace LocadoraForm.jao
                     endereco.Codigo,
                     endereco.EnderecoCompleto,
                     endereco.Cep,
-                    endereco.HorarioAtendimento
+                    endereco.HorarioAtendimento,
+                    endereco.NomeLocadora
                 });
             }
         }
 
-        private void CadastrarEndereco(string cep, string enderecoCompleto, string horarioAtendimento)
+        private void CadastrarEndereco(string cep, string enderecoCompleto, string horarioAtendimento, string nomeLocadora)
         {
             var endereco = new Endereco();
             endereco.Codigo = locadoraFisicaServico.ObterUltimoCodigo() + 1;
             endereco.Cep = cep;
             endereco.EnderecoCompleto = enderecoCompleto;
             endereco.HorarioAtendimento = horarioAtendimento;
+            endereco.NomeLocadora = nomeLocadora;
 
             locadoraFisicaServico.Adicionar(endereco);
         }
 
-        private bool ValidarDados(string cep, string endereco, string horarioAtendimento)
+        private bool ValidarDados(string cep, string endereco, string horarioAtendimento, string nomeLocadora)
         {
             if (cep.Replace("-", "").Trim().Length != 8)
             {
@@ -125,8 +129,14 @@ namespace LocadoraForm.jao
 
                 return false;
             }
+            if (nomeLocadora.Trim().Length < 1)
+            {
+                MessageBox.Show("nome da locadora inválido");
 
-            return false;
+                textBoxNomeLocadora.Focus();
+            }
+
+            return true;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -139,6 +149,7 @@ namespace LocadoraForm.jao
             maskedTextBoxCep.Text = "";
             textBoxEnderecoCompleto.Text = "";
             dateTimePickerHoraAtendimento.Text = "";
+            textBoxNomeLocadora.Text = "";
 
             dataGridView1.ClearSelection();
         }
@@ -159,6 +170,7 @@ namespace LocadoraForm.jao
             maskedTextBoxCep.Text = endereco.Cep;
             textBoxEnderecoCompleto.Text = endereco.EnderecoCompleto;
             dateTimePickerHoraAtendimento.Text = endereco.HorarioAtendimento;
+            textBoxNomeLocadora.Text = endereco.NomeLocadora;
         }
 
         private void EnderecosForm_Load(object sender, EventArgs e)
@@ -226,7 +238,7 @@ namespace LocadoraForm.jao
             var httpClient = new HttpClient();
 
             var resultado = httpClient.GetAsync(
-                $"https://viacep.com.br/ws/{cep}/json/").Result;
+                $@"https://viacep.com.br/ws/{cep}/json/").Result;
 
             if(resultado.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -243,5 +255,11 @@ namespace LocadoraForm.jao
         {
             ObterDadosCep();
         }
+
+        private void LocadoraFisicaForm_Load(object sender, EventArgs e)
+        {
+            PreencherDataGridViewComEnderecos();
+        }
+
     }
 }

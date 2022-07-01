@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Net.Http;
 using System.Windows.Forms;
 
 namespace LocadoraForm.Perez
@@ -13,6 +15,8 @@ namespace LocadoraForm.Perez
             clienteServico = new ClienteServico();
 
             ListarClientes();
+
+            ObterCep();
         }
 
         private void ListarClientes()
@@ -41,7 +45,7 @@ namespace LocadoraForm.Perez
             dataGridView1.ClearSelection();
         }
 
-        private void EditarDados(string nome, int cep)
+        private void EditarDados(string nome, string cep)
         {
             var cliente = new Cliente();
             cliente.Nome = nome;
@@ -57,14 +61,14 @@ namespace LocadoraForm.Perez
             ListarClientes();
         }
 
-        private void AdicionarCliente(string nome, int cep)
+        private void AdicionarCliente(string nome, string cep, string endereco)
         {
             var clientes = new Cliente()
             {
                 Codigo = clienteServico.ObterUltimoCodigo() + 1,
                 Nome = nome,
-                Cep = cep
-
+                Cep = cep,
+                EnderecoCompleto = endereco
             };
 
             clienteServico.Cadastrar(clientes);
@@ -81,15 +85,25 @@ namespace LocadoraForm.Perez
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             var nome = textBoxNome.Text.Trim();
-            var cep = Convert.ToInt32(maskedTextBoxCep.Text.Trim());
+            var cep = maskedTextBoxCep.Text;
+            var enderecoCompleto = textBoxEndereco.Text.Trim();
+
+            var validarDados = ValidarDados(cep, enderecoCompleto);
+
+            if (validarDados == false)
+                return;
 
             if (dataGridView1.SelectedRows.Count == 0)
             {
-                AdicionarCliente(nome, cep);
+                AdicionarCliente(nome, cep, enderecoCompleto);
 
                 return;
             }
             EditarDados(nome, cep);
+
+            PreencherDataGridViewComEnderecos();
+
+            LimparCampos();
         }
 
         private void ClientesForm_Load(object sender, EventArgs e)
@@ -114,30 +128,103 @@ namespace LocadoraForm.Perez
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            var quantidadeLinhaSelecionada = dataGridView1.SelectedRows.Count;
-
-            if (quantidadeLinhaSelecionada == 0)
+           if(dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("selecione um cliente");
+                MessageBox.Show("Selecione um cliente para remover");
                 return;
             }
 
-            var opcaoEscolhida = MessageBox.Show("Deseja realmente apagar?", "aviso", MessageBoxButtons.YesNo);
-
-            if (opcaoEscolhida == DialogResult.Yes)
-            {
-                var linhaSelecionada = dataGridView1.SelectedRows[0];
-                var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-
-                clienteServico.Apagar(codigoSelecionado);
-
-                ListarClientes();
-            }
+            var resposta = MessageBox.Show("Deseja realmente apagar o endereço?", "Aviso", MessageBoxButtons.YesNo);
+            
         }
 
         private void ObterCep()
         {
+            var cep = maskedTextBoxCep.Text.Replace("-", "").Trim();
 
+            if (cep.Length != 8)
+                return;
+
+            var httpClient = new HttpClient();
+
+            var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
+
+            if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var resposta = resultado.Content.ReadAsStringAsync().Result;
+                var dadosEnderecos = JsonConvert.DeserializeObject<EnderecosDadosRequisitados>(resposta);
+
+                textBoxEndereco.Text = $"{dadosEnderecos.Uf} - {dadosEnderecos.Localidade} - {dadosEnderecos.Bairro} - {dadosEnderecos.Logradouro}";
+            }
+        }
+
+        private void maskedTextBoxCep_MouseLeave(object sender, EventArgs e)
+        {
+            ObterCep();
+        }
+
+        private void maskedTextBoxCep_Leave(object sender, EventArgs e)
+        {
+            ObterCep();
+        }
+
+        private bool ValidarDados(string cep, string enderecoCompleto)
+        {
+            if(cep.Replace("-", "").Trim().Length != 8)
+            {
+                MessageBox.Show("CEP inválido");
+
+                maskedTextBoxCep.Focus();
+
+                return false;
+            }
+
+            if(enderecoCompleto.Trim().Length < 10)
+            {
+                MessageBox.Show("O endereço completo deve ter no minimo 10 caracteres");
+
+                maskedTextBoxCep.Focus();
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private void radioButtonMenorIdade_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CadastrarEnderecos(string cep, string enderecoCompleto)
+        {
+            var endereco = new Cliente();
+            endereco.Codigo = clienteServico.ObterUltimoCodigo() + 1;
+            endereco.Cep = cep;
+            endereco.EnderecoCompleto = enderecoCompleto;
+
+            clienteServico.AdicionarEndereco(endereco);
+        }
+
+        private void PreencherDataGridViewComEnderecos()
+        {
+            var enderecos = clienteServico.ObterTodos();
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.ClearSelection();
+
+            for(var i = 0; i < enderecos.Count; i++)
+            {
+                var endereco = enderecos[i];
+
+                dataGridView1.Rows.Add(new object[]
+                {
+                    endereco.EnderecoCompleto,
+                    endereco.Nome,
+                    endereco.Cep,
+                    endereco.Codigo
+                });
+            }
         }
     }
 }
