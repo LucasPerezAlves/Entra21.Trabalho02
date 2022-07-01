@@ -111,7 +111,13 @@ namespace LocadoraForm.Perez
             SalvarArquivo();
         }
 
-        //public void AdicionarEndereco(Cliente )
+
+        public void AdicionarEndereco(Cliente cliente)
+        {
+            clientes.Add(cliente);
+
+            SalvarArquivo();
+        }
     }
 
 
