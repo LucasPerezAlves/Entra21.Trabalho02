@@ -15,7 +15,7 @@ namespace LocadoraForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LocadoraFisicaForm());
+            Application.Run(new MenuLocadoraForm());
         }
     }
 }

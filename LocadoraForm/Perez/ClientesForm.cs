@@ -162,7 +162,7 @@ namespace LocadoraForm.Perez
                 var resposta = resultado.Content.ReadAsStringAsync().Result;
                 var dadosenderecos = JsonConvert.DeserializeObject<EnderecosDadosRequisitados>(resposta);
 
-                textBoxEndereco.Text = $"{dadosenderecos.uf} - {dadosenderecos.localidade} - {dadosenderecos.bairro} - {dadosenderecos.logradouro}";
+                textBoxEndereco.Text = $"{dadosenderecos.Uf} - {dadosenderecos.Localidade} - {dadosenderecos.Bairro} - {dadosenderecos.Logradouro}";
             }
         }
 

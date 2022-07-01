@@ -152,7 +152,7 @@ namespace LocadoraForm.jao
                 return false;
             }
 
-            if(dataFundacao.Replace(":", "").Trim().Length != 6)
+            if(dataFundacao.Replace(":", "").Trim().Length != 8)
             {
                 MessageBox.Show("Data inválida");
 

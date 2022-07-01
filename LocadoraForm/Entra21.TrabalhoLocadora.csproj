@@ -73,6 +73,7 @@
       <DependentUpon>CatalogoFilmesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Perez\Cliente.cs" />
+    <Compile Include="Perez\EnderecosDadosRequisitados.cs" />
     <Compile Include="Prim\FeedbackForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="jao\LocadoraFisica\LocadoraFisicaForm.resx">
       <DependentUpon>LocadoraFisicaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LocadoraForm.resx">
+      <DependentUpon>LocadoraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Perez\CatalogoFilmesForm.resx">
       <DependentUpon>CatalogoFilmesForm.cs</DependentUpon>
@@ -147,6 +151,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\31087.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curriculum-vitae.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vista-superior-do-quadro-de-pipoca-com-espaco-de-copia_23-2148553265.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\client.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
