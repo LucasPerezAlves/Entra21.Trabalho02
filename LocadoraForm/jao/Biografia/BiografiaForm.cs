@@ -12,9 +12,25 @@ namespace LocadoraForm.jao
 {
     public partial class BiografiaForm : Form
     {
+        private BiografiaServico biografiaServico;
+        private LocadoraFisicaServico LocadoraFisicaServico;
+
         public BiografiaForm()
         {
             InitializeComponent();
+
+            biografiaServico = new BiografiaServico();
+
+            LocadoraFisicaServico = new LocadoraFisicaServico();
+
+            PreencherDataGridViewComBiografia();
+
+            PreencherComboBoxComAsLocadoras();
+        }
+
+        private void PreencherComboBoxComAsLocadoras()
+        {
+            var locadoras = biografiaServico.ObterTodos();
         }
 
         private void BiografiaForm_Load(object sender, EventArgs e)

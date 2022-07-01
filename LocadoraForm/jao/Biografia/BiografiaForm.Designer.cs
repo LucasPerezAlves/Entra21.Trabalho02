@@ -45,16 +45,20 @@
             this.textBoxSinopse = new System.Windows.Forms.TextBox();
             this.comboBoxLocadora = new System.Windows.Forms.ComboBox();
             this.labelLocadora = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonEditar = new System.Windows.Forms.Button();
+            this.buttonApagar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelBiografiaLocadora
             // 
             this.labelBiografiaLocadora.AutoSize = true;
-            this.labelBiografiaLocadora.Location = new System.Drawing.Point(13, 13);
+            this.labelBiografiaLocadora.Location = new System.Drawing.Point(10, 11);
+            this.labelBiografiaLocadora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBiografiaLocadora.Name = "labelBiografiaLocadora";
-            this.labelBiografiaLocadora.Size = new System.Drawing.Size(151, 16);
+            this.labelBiografiaLocadora.Size = new System.Drawing.Size(117, 13);
             this.labelBiografiaLocadora.TabIndex = 0;
             this.labelBiografiaLocadora.Text = "Biografia das locadoras";
             // 
@@ -67,12 +71,13 @@
             this.ColumnCodigo,
             this.ColumnLocadora,
             this.ColumnBiografia});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 26);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(386, 379);
+            this.dataGridView1.Size = new System.Drawing.Size(290, 308);
             this.dataGridView1.TabIndex = 1;
             // 
             // ColumnCodigo
@@ -102,116 +107,159 @@
             // labelNome
             // 
             this.labelNome.AutoSize = true;
-            this.labelNome.Location = new System.Drawing.Point(409, 32);
+            this.labelNome.Location = new System.Drawing.Point(307, 26);
+            this.labelNome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNome.Name = "labelNome";
-            this.labelNome.Size = new System.Drawing.Size(44, 16);
+            this.labelNome.Size = new System.Drawing.Size(35, 13);
             this.labelNome.TabIndex = 2;
             this.labelNome.Text = "Nome";
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(412, 52);
+            this.textBoxNome.Location = new System.Drawing.Point(309, 42);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(152, 22);
+            this.textBoxNome.Size = new System.Drawing.Size(115, 20);
             this.textBoxNome.TabIndex = 3;
             // 
             // labelDiaFundacao
             // 
             this.labelDiaFundacao.AutoSize = true;
-            this.labelDiaFundacao.Location = new System.Drawing.Point(409, 82);
+            this.labelDiaFundacao.Location = new System.Drawing.Point(307, 67);
+            this.labelDiaFundacao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDiaFundacao.Name = "labelDiaFundacao";
-            this.labelDiaFundacao.Size = new System.Drawing.Size(106, 16);
+            this.labelDiaFundacao.Size = new System.Drawing.Size(86, 13);
             this.labelDiaFundacao.TabIndex = 4;
             this.labelDiaFundacao.Text = "Dia da fundação";
             // 
             // dateTimePickerDiaFundacao
             // 
             this.dateTimePickerDiaFundacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDiaFundacao.Location = new System.Drawing.Point(412, 101);
+            this.dateTimePickerDiaFundacao.Location = new System.Drawing.Point(309, 82);
+            this.dateTimePickerDiaFundacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerDiaFundacao.Name = "dateTimePickerDiaFundacao";
-            this.dateTimePickerDiaFundacao.Size = new System.Drawing.Size(152, 22);
+            this.dateTimePickerDiaFundacao.Size = new System.Drawing.Size(115, 20);
             this.dateTimePickerDiaFundacao.TabIndex = 5;
             // 
             // labelMotivoFundacao
             // 
             this.labelMotivoFundacao.AutoSize = true;
-            this.labelMotivoFundacao.Location = new System.Drawing.Point(409, 130);
+            this.labelMotivoFundacao.Location = new System.Drawing.Point(307, 106);
+            this.labelMotivoFundacao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMotivoFundacao.Name = "labelMotivoFundacao";
-            this.labelMotivoFundacao.Size = new System.Drawing.Size(106, 16);
+            this.labelMotivoFundacao.Size = new System.Drawing.Size(87, 13);
             this.labelMotivoFundacao.TabIndex = 6;
             this.labelMotivoFundacao.Text = "Motivo fundação";
             // 
             // textBoxMotivoFundacao
             // 
-            this.textBoxMotivoFundacao.Location = new System.Drawing.Point(412, 149);
+            this.textBoxMotivoFundacao.Location = new System.Drawing.Point(309, 121);
+            this.textBoxMotivoFundacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxMotivoFundacao.Name = "textBoxMotivoFundacao";
-            this.textBoxMotivoFundacao.Size = new System.Drawing.Size(152, 22);
+            this.textBoxMotivoFundacao.Size = new System.Drawing.Size(115, 20);
             this.textBoxMotivoFundacao.TabIndex = 7;
             // 
             // labelParcerias
             // 
             this.labelParcerias.AutoSize = true;
-            this.labelParcerias.Location = new System.Drawing.Point(409, 179);
+            this.labelParcerias.Location = new System.Drawing.Point(307, 145);
+            this.labelParcerias.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelParcerias.Name = "labelParcerias";
-            this.labelParcerias.Size = new System.Drawing.Size(65, 16);
+            this.labelParcerias.Size = new System.Drawing.Size(51, 13);
             this.labelParcerias.TabIndex = 8;
             this.labelParcerias.Text = "Parcerias";
             // 
             // textBoxParcerias
             // 
-            this.textBoxParcerias.Location = new System.Drawing.Point(412, 198);
+            this.textBoxParcerias.Location = new System.Drawing.Point(309, 161);
+            this.textBoxParcerias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxParcerias.Name = "textBoxParcerias";
-            this.textBoxParcerias.Size = new System.Drawing.Size(152, 22);
+            this.textBoxParcerias.Size = new System.Drawing.Size(115, 20);
             this.textBoxParcerias.TabIndex = 9;
             // 
             // labelSinopse
             // 
             this.labelSinopse.AutoSize = true;
-            this.labelSinopse.Location = new System.Drawing.Point(412, 227);
+            this.labelSinopse.Location = new System.Drawing.Point(309, 184);
+            this.labelSinopse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSinopse.Name = "labelSinopse";
-            this.labelSinopse.Size = new System.Drawing.Size(133, 16);
+            this.labelSinopse.Size = new System.Drawing.Size(105, 13);
             this.labelSinopse.TabIndex = 10;
             this.labelSinopse.Text = "Sinopce da locadora";
             // 
             // textBoxSinopse
             // 
-            this.textBoxSinopse.Location = new System.Drawing.Point(415, 246);
+            this.textBoxSinopse.Location = new System.Drawing.Point(311, 200);
+            this.textBoxSinopse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSinopse.Name = "textBoxSinopse";
-            this.textBoxSinopse.Size = new System.Drawing.Size(149, 22);
+            this.textBoxSinopse.Size = new System.Drawing.Size(113, 20);
             this.textBoxSinopse.TabIndex = 11;
             // 
             // comboBoxLocadora
             // 
             this.comboBoxLocadora.FormattingEnabled = true;
-            this.comboBoxLocadora.Location = new System.Drawing.Point(415, 290);
+            this.comboBoxLocadora.Location = new System.Drawing.Point(311, 236);
+            this.comboBoxLocadora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxLocadora.Name = "comboBoxLocadora";
-            this.comboBoxLocadora.Size = new System.Drawing.Size(149, 24);
+            this.comboBoxLocadora.Size = new System.Drawing.Size(113, 21);
             this.comboBoxLocadora.TabIndex = 12;
             // 
             // labelLocadora
             // 
             this.labelLocadora.AutoSize = true;
-            this.labelLocadora.Location = new System.Drawing.Point(412, 271);
+            this.labelLocadora.Location = new System.Drawing.Point(309, 220);
+            this.labelLocadora.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelLocadora.Name = "labelLocadora";
-            this.labelLocadora.Size = new System.Drawing.Size(65, 16);
+            this.labelLocadora.Size = new System.Drawing.Size(52, 13);
             this.labelLocadora.TabIndex = 13;
             this.labelLocadora.Text = "Locadora";
             // 
-            // button1
+            // buttonEditar
             // 
-            this.button1.Location = new System.Drawing.Point(326, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Editar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonEditar.Location = new System.Drawing.Point(244, 2);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonEditar.Name = "buttonEditar";
+            this.buttonEditar.Size = new System.Drawing.Size(56, 19);
+            this.buttonEditar.TabIndex = 14;
+            this.buttonEditar.Text = "Editar";
+            this.buttonEditar.UseVisualStyleBackColor = true;
+            // 
+            // buttonApagar
+            // 
+            this.buttonApagar.Location = new System.Drawing.Point(164, 2);
+            this.buttonApagar.Name = "buttonApagar";
+            this.buttonApagar.Size = new System.Drawing.Size(75, 23);
+            this.buttonApagar.TabIndex = 15;
+            this.buttonApagar.Text = "Apagar";
+            this.buttonApagar.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(352, 331);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 16;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            // 
+            // buttonSalvar
+            // 
+            this.buttonSalvar.Location = new System.Drawing.Point(433, 331);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalvar.TabIndex = 17;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
             // 
             // BiografiaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(520, 366);
+            this.Controls.Add(this.buttonSalvar);
+            this.Controls.Add(this.buttonCancelar);
+            this.Controls.Add(this.buttonApagar);
+            this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.labelLocadora);
             this.Controls.Add(this.comboBoxLocadora);
             this.Controls.Add(this.textBoxSinopse);
@@ -226,6 +274,7 @@
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelBiografiaLocadora);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BiografiaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BiografiaForm";
@@ -255,6 +304,9 @@
         private System.Windows.Forms.TextBox textBoxSinopse;
         private System.Windows.Forms.ComboBox comboBoxLocadora;
         private System.Windows.Forms.Label labelLocadora;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonEditar;
+        private System.Windows.Forms.Button buttonApagar;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonSalvar;
     }
 }

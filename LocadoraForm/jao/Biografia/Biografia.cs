@@ -10,7 +10,7 @@ namespace LocadoraForm.jao
     {
         public int Codigo;
         public string Nome;
-        public DateTime DataFundaca;
+        public string DataFundacao;
         public string MotivoFundacao;
         public string Parceirias;
         public string Sinopse;
