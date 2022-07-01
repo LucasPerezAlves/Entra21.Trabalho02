@@ -38,12 +38,12 @@
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
+            this.labelAnoLancamento = new System.Windows.Forms.Label();
             this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNomeFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnGeneroFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnClassificacaoIndicativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelAnoLancamento = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.ColumnAnoLancamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePickerAnoLancamento = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,10 +57,11 @@
             this.ColumnCodigo,
             this.ColumnNomeFilme,
             this.ColumnGeneroFilme,
-            this.ColumnClassificacaoIndicativa});
+            this.ColumnAnoLancamento});
             this.dataGridView1.Location = new System.Drawing.Point(12, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(424, 249);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -80,11 +81,12 @@
             // comboBoxGeneroFilme
             // 
             this.comboBoxGeneroFilme.FormattingEnabled = true;
+            this.comboBoxGeneroFilme.Items.AddRange(new object[] {
+            "Aventura"});
             this.comboBoxGeneroFilme.Location = new System.Drawing.Point(445, 102);
             this.comboBoxGeneroFilme.Name = "comboBoxGeneroFilme";
             this.comboBoxGeneroFilme.Size = new System.Drawing.Size(227, 21);
             this.comboBoxGeneroFilme.TabIndex = 2;
-            this.comboBoxGeneroFilme.SelectedIndexChanged += new System.EventHandler(this.comboBoxGeneroFilme_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -157,6 +159,16 @@
             this.buttonApagar.UseVisualStyleBackColor = true;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
+            // labelAnoLancamento
+            // 
+            this.labelAnoLancamento.AutoSize = true;
+            this.labelAnoLancamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnoLancamento.Location = new System.Drawing.Point(442, 130);
+            this.labelAnoLancamento.Name = "labelAnoLancamento";
+            this.labelAnoLancamento.Size = new System.Drawing.Size(162, 14);
+            this.labelAnoLancamento.TabIndex = 16;
+            this.labelAnoLancamento.Text = "Data de lançamento do filme";
+            // 
             // ColumnCodigo
             // 
             this.ColumnCodigo.HeaderText = "Código";
@@ -175,30 +187,19 @@
             this.ColumnGeneroFilme.Name = "ColumnGeneroFilme";
             this.ColumnGeneroFilme.ReadOnly = true;
             // 
-            // ColumnClassificacaoIndicativa
+            // ColumnAnoLancamento
             // 
-            this.ColumnClassificacaoIndicativa.HeaderText = "Classificação indicativa";
-            this.ColumnClassificacaoIndicativa.Name = "ColumnClassificacaoIndicativa";
-            this.ColumnClassificacaoIndicativa.ReadOnly = true;
+            this.ColumnAnoLancamento.HeaderText = "Ano de lançamento";
+            this.ColumnAnoLancamento.Name = "ColumnAnoLancamento";
+            this.ColumnAnoLancamento.ReadOnly = true;
             // 
-            // labelAnoLancamento
+            // dateTimePickerAnoLancamento
             // 
-            this.labelAnoLancamento.AutoSize = true;
-            this.labelAnoLancamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAnoLancamento.Location = new System.Drawing.Point(445, 130);
-            this.labelAnoLancamento.Name = "labelAnoLancamento";
-            this.labelAnoLancamento.Size = new System.Drawing.Size(162, 14);
-            this.labelAnoLancamento.TabIndex = 16;
-            this.labelAnoLancamento.Text = "Data de lançamento do filme";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(448, 147);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox1.TabIndex = 17;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.dateTimePickerAnoLancamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerAnoLancamento.Location = new System.Drawing.Point(445, 147);
+            this.dateTimePickerAnoLancamento.Name = "dateTimePickerAnoLancamento";
+            this.dateTimePickerAnoLancamento.Size = new System.Drawing.Size(106, 20);
+            this.dateTimePickerAnoLancamento.TabIndex = 18;
             // 
             // FilmesForm
             // 
@@ -206,7 +207,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(684, 311);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.dateTimePickerAnoLancamento);
             this.Controls.Add(this.labelAnoLancamento);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
@@ -239,11 +240,11 @@
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
+        private System.Windows.Forms.Label labelAnoLancamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNomeFilme;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGeneroFilme;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassificacaoIndicativa;
-        private System.Windows.Forms.Label labelAnoLancamento;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAnoLancamento;
+        private System.Windows.Forms.DateTimePicker dateTimePickerAnoLancamento;
     }
 }

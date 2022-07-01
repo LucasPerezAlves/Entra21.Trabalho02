@@ -67,6 +67,12 @@
     </Compile>
     <Compile Include="jao\LocadoraFisica\LocadoraFisicaServico.cs" />
     <Compile Include="Perez\Cliente.cs" />
+    <Compile Include="Prim\FeedbackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prim\FeedbackForm.Designer.cs">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prim\Filme.cs" />
     <Compile Include="Prim\FilmeServico.cs" />
     <Compile Include="Prim\FilmesForm.cs">
@@ -99,6 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Perez\ClientesForm.resx">
       <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prim\FeedbackForm.resx">
+      <DependentUpon>FeedbackForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prim\FilmesForm.resx">
       <DependentUpon>FilmesForm.cs</DependentUpon>

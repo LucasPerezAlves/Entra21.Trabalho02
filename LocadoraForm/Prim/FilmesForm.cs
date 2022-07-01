@@ -27,7 +27,7 @@ namespace LocadoraForm
         {
             textBoxNomeFilme.Clear();
             comboBoxGeneroFilme.SelectedIndex = -1;
-            maskedTextBox1.Clear();
+            dateTimePickerAnoLancamento.Text = string.Empty;
 
             dataGridView1.ClearSelection();
         } 
@@ -83,18 +83,18 @@ namespace LocadoraForm
             LimparCampos();
         }
 
-        private void CadastrarFilme(string nomeFilme, GeneroFilme generoFilme, DateTime anoLancamento)
+        private void CadastrarFilme(string nomeFilme, string generoFilme, string anoLancamento)
         {
             var filme = new Filme();
             filme.Codigo = filmeServico.ObterUltimoCodigo() + 1;
             filme.NomeFilme = nomeFilme;
-            filme.GeneroFilme = generoFilme;
-            // filme.AnoLancamento = anoLancamento;
+            //filme.GeneroFilme = generoFilme;
+            //filme.AnoLancamento = anoLancamento;
 
             filmeServico.Adicionar(filme);
         }
 
-        private void EditarEndereco(string nomeFilme, string generoFilme, DateTime anoLancamento)
+        private void EditarEndereco(string nomeFilme, string generoFilme, string anoLancamento)
         {
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
@@ -105,24 +105,24 @@ namespace LocadoraForm
             //filme.GeneroFilme = generoFilme; 
             //filme.AnoLancamento = anoLancamento;
 
-            //filmeServico.Editar(filme);
+            filmeServico.Editar(filme);
         }     
         
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             var nomeFilme = textBoxNomeFilme.Text;
-            var generoFilme = comboBoxGeneroFilme.SelectedItem;
-            var anoLancamento = maskedTextBox1.Text;
+            var generoFilme = comboBoxGeneroFilme.SelectedItem.ToString();
+            var anoLancamento = dateTimePickerAnoLancamento.Value.ToString("dd/MM/yyyy");
 
-            //var dadosValidos = ValidarDados(nomeFilme, generoFilme, anoLancamento);
+            var dadosValidos = ValidarDados(nomeFilme, generoFilme, anoLancamento);
 
-            //if (dadosValidos == false)
-            //    return;
+            if (dadosValidos == false)
+                return;
 
-            //if (dataGridView1.SelectedRows.Count == 0)
-            //    CadastrarFilme(nomeFilme, generoFilme, anoLancamento);
-            //else
-            //    EditarEndereco(nomeFilme, generoFilme, anoLancamento);
+            if (dataGridView1.SelectedRows.Count == 0)
+                CadastrarFilme(nomeFilme, generoFilme, anoLancamento);
+            else
+                EditarEndereco(nomeFilme, generoFilme, anoLancamento);
 
             PreencherDataGrideViewComFilmes();
 
@@ -145,7 +145,7 @@ namespace LocadoraForm
 
             textBoxNomeFilme.Text = filme.NomeFilme;
             comboBoxGeneroFilme.Text = filme.GeneroFilme.ToString();
-            maskedTextBox1.Text = filme.AnoLancamento.ToString();
+            dateTimePickerAnoLancamento.Text = filme.AnoLancamento.ToString();
         }
 
         private void PreencherDataGrideViewComFilmes()
@@ -165,7 +165,7 @@ namespace LocadoraForm
                     filme.Codigo,
                     filme.NomeFilme,
                     filme.GeneroFilme,
-                    filme.AnoLancamento
+                    filme.AnoLancamento.ToString("dd/MM/yyyy")
                 });
             }
         } 
@@ -201,15 +201,14 @@ namespace LocadoraForm
                 return false;
             }
 
-            // DATE TIME TODO
-            //if ()
-            //{
-            //    MessageBox.Show("Data de Lançamento inválida");
+            if (dateTimePickerAnoLancamento.Text.Replace("/", "").Trim().Length != 8)
+            {
+                MessageBox.Show("Data de Lançamento inválida");
 
-            //    maskedTextBox1.Focus();
+                dateTimePickerAnoLancamento.Focus();
 
-            //    return false;
-            //}
+                return false;
+            }
             return true;
         }
     }
