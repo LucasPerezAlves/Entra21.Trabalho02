@@ -8,5 +8,13 @@ namespace LocadoraForm.jao
 {
     internal class Biografia
     {
+        public int Codigo;
+        public string Nome;
+        public DateTime DataFundaca;
+        public string MotivoFundacao;
+        public string Parceirias;
+        public string Sinopse;
+        public Endereco Locadora;
+
     }
 }

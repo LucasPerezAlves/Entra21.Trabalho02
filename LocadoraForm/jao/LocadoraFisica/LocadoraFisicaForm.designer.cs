@@ -72,6 +72,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(501, 490);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -123,6 +124,7 @@
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
             this.maskedTextBoxCep.Size = new System.Drawing.Size(160, 22);
             this.maskedTextBoxCep.TabIndex = 3;
+            this.maskedTextBoxCep.Leave += new System.EventHandler(this.maskedTextBoxCep_Leave);
             // 
             // labelCep
             // 
@@ -227,7 +229,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LocadoraFisicaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LocadoraFisicaForm";
+            this.Text = "r";
+            this.Load += new System.EventHandler(this.LocadoraFisicaForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

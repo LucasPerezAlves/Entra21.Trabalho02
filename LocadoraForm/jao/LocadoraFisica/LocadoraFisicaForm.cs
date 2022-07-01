@@ -29,7 +29,7 @@ namespace LocadoraForm.jao
         {
             var cep = maskedTextBoxCep.Text;
             var enderecoCompleto = textBoxEnderecoCompleto.Text;
-            var horarioAtendimento = dateTimePickerHoraAtendimento.Text;
+            var horarioAtendimento = dateTimePickerHoraAtendimento.Value.ToString("HH:mm");
 
             var dadosValidos = ValidarDados(cep, enderecoCompleto, horarioAtendimento);
 
@@ -126,7 +126,7 @@ namespace LocadoraForm.jao
                 return false;
             }
 
-            return false;
+            return true;
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -226,7 +226,7 @@ namespace LocadoraForm.jao
             var httpClient = new HttpClient();
 
             var resultado = httpClient.GetAsync(
-                $"https://viacep.com.br/ws/{cep}/json/").Result;
+                $@"https://viacep.com.br/ws/{cep}/json/").Result;
 
             if(resultado.StatusCode == System.Net.HttpStatusCode.OK)
             {
@@ -243,5 +243,11 @@ namespace LocadoraForm.jao
         {
             ObterDadosCep();
         }
+
+        private void LocadoraFisicaForm_Load(object sender, EventArgs e)
+        {
+            PreencherDataGridViewComEnderecos();
+        }
+
     }
 }
