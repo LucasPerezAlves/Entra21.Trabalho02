@@ -72,15 +72,13 @@
             this.ColumnLocadora,
             this.ColumnBiografia});
             this.dataGridView1.Location = new System.Drawing.Point(12, 26);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(290, 308);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ColumnCodigo
             // 
@@ -119,7 +117,7 @@
             // textBoxNome
             // 
             this.textBoxNome.Location = new System.Drawing.Point(309, 42);
-            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxNome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(115, 20);
             this.textBoxNome.TabIndex = 3;
@@ -138,7 +136,7 @@
             // 
             this.dateTimePickerDiaFundacao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDiaFundacao.Location = new System.Drawing.Point(309, 82);
-            this.dateTimePickerDiaFundacao.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePickerDiaFundacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerDiaFundacao.Name = "dateTimePickerDiaFundacao";
             this.dateTimePickerDiaFundacao.Size = new System.Drawing.Size(115, 20);
             this.dateTimePickerDiaFundacao.TabIndex = 5;
@@ -156,7 +154,7 @@
             // textBoxMotivoFundacao
             // 
             this.textBoxMotivoFundacao.Location = new System.Drawing.Point(309, 121);
-            this.textBoxMotivoFundacao.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxMotivoFundacao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxMotivoFundacao.Name = "textBoxMotivoFundacao";
             this.textBoxMotivoFundacao.Size = new System.Drawing.Size(115, 20);
             this.textBoxMotivoFundacao.TabIndex = 7;
@@ -174,7 +172,7 @@
             // textBoxParcerias
             // 
             this.textBoxParcerias.Location = new System.Drawing.Point(309, 161);
-            this.textBoxParcerias.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxParcerias.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxParcerias.Name = "textBoxParcerias";
             this.textBoxParcerias.Size = new System.Drawing.Size(115, 20);
             this.textBoxParcerias.TabIndex = 9;
@@ -192,7 +190,7 @@
             // textBoxSinopse
             // 
             this.textBoxSinopse.Location = new System.Drawing.Point(311, 200);
-            this.textBoxSinopse.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxSinopse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBoxSinopse.Name = "textBoxSinopse";
             this.textBoxSinopse.Size = new System.Drawing.Size(113, 20);
             this.textBoxSinopse.TabIndex = 11;
@@ -201,7 +199,7 @@
             // 
             this.comboBoxLocadora.FormattingEnabled = true;
             this.comboBoxLocadora.Location = new System.Drawing.Point(311, 236);
-            this.comboBoxLocadora.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBoxLocadora.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxLocadora.Name = "comboBoxLocadora";
             this.comboBoxLocadora.Size = new System.Drawing.Size(113, 21);
             this.comboBoxLocadora.TabIndex = 12;
@@ -219,13 +217,12 @@
             // buttonEditar
             // 
             this.buttonEditar.Location = new System.Drawing.Point(244, 2);
-            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(56, 19);
             this.buttonEditar.TabIndex = 14;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
-            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
@@ -235,7 +232,6 @@
             this.buttonApagar.TabIndex = 15;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
-            this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
             // buttonCancelar
             // 
@@ -245,7 +241,6 @@
             this.buttonCancelar.TabIndex = 16;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonSalvar
             // 
@@ -255,7 +250,6 @@
             this.buttonSalvar.TabIndex = 17;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
-            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // BiografiaForm
             // 
@@ -280,7 +274,7 @@
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelBiografiaLocadora);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BiografiaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BiografiaForm";

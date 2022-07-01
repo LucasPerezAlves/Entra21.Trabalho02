@@ -6,7 +6,7 @@ namespace LocadoraForm.Prim
     {
         public int Codigo;
         public string NomeFilme;
-        public GeneroFilme GeneroFilme;
+        public string GeneroFilme;
         public DateTime AnoLancamento;
     }
 }

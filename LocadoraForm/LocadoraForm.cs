@@ -1,6 +1,4 @@
-﻿using LocadoraForm.jao;
-using LocadoraForm.Perez;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,29 +10,11 @@ using System.Windows.Forms;
 
 namespace LocadoraForm
 {
-    public partial class MenuLocadoraForm : Form
+    public partial class Form1 : Form
     {
-        public MenuLocadoraForm()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void buttonLocadoraFisica_Click(object sender, EventArgs e)
-        {
-            var locadoraFisicaForm = new LocadoraFisicaForm();
-            locadoraFisicaForm.ShowDialog();
-        }
-
-        private void buttonBiografia_Click(object sender, EventArgs e)
-        {
-            var biografiaForm = new BiografiaForm();
-            biografiaForm.ShowDialog();
-        }
-
-        private void buttonCliente_Click(object sender, EventArgs e)
-        {
-            var clientesForm = new ClientesForm();
-            clientesForm.ShowDialog();
         }
     }
 }

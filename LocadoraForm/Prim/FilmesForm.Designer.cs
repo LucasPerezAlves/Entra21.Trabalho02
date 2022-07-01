@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNomeFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGeneroFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAnoLancamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelFilmesCadastrados = new System.Windows.Forms.Label();
-            this.comboBoxGeneroFilme = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNomeFilme = new System.Windows.Forms.TextBox();
@@ -39,11 +42,8 @@
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.labelAnoLancamento = new System.Windows.Forms.Label();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNomeFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnGeneroFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnAnoLancamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePickerAnoLancamento = new System.Windows.Forms.DateTimePicker();
+            this.textBoxGeneroFilme = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,6 +65,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(424, 249);
             this.dataGridView1.TabIndex = 0;
             // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Código";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            // 
+            // ColumnNomeFilme
+            // 
+            this.ColumnNomeFilme.HeaderText = "Nome do filme";
+            this.ColumnNomeFilme.Name = "ColumnNomeFilme";
+            this.ColumnNomeFilme.ReadOnly = true;
+            // 
+            // ColumnGeneroFilme
+            // 
+            this.ColumnGeneroFilme.HeaderText = "Gênero do filme";
+            this.ColumnGeneroFilme.Name = "ColumnGeneroFilme";
+            this.ColumnGeneroFilme.ReadOnly = true;
+            // 
+            // ColumnAnoLancamento
+            // 
+            this.ColumnAnoLancamento.HeaderText = "Ano de lançamento";
+            this.ColumnAnoLancamento.Name = "ColumnAnoLancamento";
+            this.ColumnAnoLancamento.ReadOnly = true;
+            // 
             // labelFilmesCadastrados
             // 
             this.labelFilmesCadastrados.AutoSize = true;
@@ -77,16 +101,6 @@
             this.labelFilmesCadastrados.TabIndex = 1;
             this.labelFilmesCadastrados.Text = "Filmes Cadastrados";
             this.labelFilmesCadastrados.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBoxGeneroFilme
-            // 
-            this.comboBoxGeneroFilme.FormattingEnabled = true;
-            this.comboBoxGeneroFilme.Items.AddRange(new object[] {
-            "Aventura"});
-            this.comboBoxGeneroFilme.Location = new System.Drawing.Point(445, 102);
-            this.comboBoxGeneroFilme.Name = "comboBoxGeneroFilme";
-            this.comboBoxGeneroFilme.Size = new System.Drawing.Size(227, 21);
-            this.comboBoxGeneroFilme.TabIndex = 2;
             // 
             // label1
             // 
@@ -169,30 +183,6 @@
             this.labelAnoLancamento.TabIndex = 16;
             this.labelAnoLancamento.Text = "Data de lançamento do filme";
             // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.HeaderText = "Código";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            // 
-            // ColumnNomeFilme
-            // 
-            this.ColumnNomeFilme.HeaderText = "Nome do filme";
-            this.ColumnNomeFilme.Name = "ColumnNomeFilme";
-            this.ColumnNomeFilme.ReadOnly = true;
-            // 
-            // ColumnGeneroFilme
-            // 
-            this.ColumnGeneroFilme.HeaderText = "Gênero do filme";
-            this.ColumnGeneroFilme.Name = "ColumnGeneroFilme";
-            this.ColumnGeneroFilme.ReadOnly = true;
-            // 
-            // ColumnAnoLancamento
-            // 
-            this.ColumnAnoLancamento.HeaderText = "Ano de lançamento";
-            this.ColumnAnoLancamento.Name = "ColumnAnoLancamento";
-            this.ColumnAnoLancamento.ReadOnly = true;
-            // 
             // dateTimePickerAnoLancamento
             // 
             this.dateTimePickerAnoLancamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -201,12 +191,20 @@
             this.dateTimePickerAnoLancamento.Size = new System.Drawing.Size(106, 20);
             this.dateTimePickerAnoLancamento.TabIndex = 18;
             // 
+            // textBoxGeneroFilme
+            // 
+            this.textBoxGeneroFilme.Location = new System.Drawing.Point(445, 103);
+            this.textBoxGeneroFilme.Name = "textBoxGeneroFilme";
+            this.textBoxGeneroFilme.Size = new System.Drawing.Size(227, 20);
+            this.textBoxGeneroFilme.TabIndex = 19;
+            // 
             // FilmesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(684, 311);
+            this.Controls.Add(this.textBoxGeneroFilme);
             this.Controls.Add(this.dateTimePickerAnoLancamento);
             this.Controls.Add(this.labelAnoLancamento);
             this.Controls.Add(this.buttonApagar);
@@ -216,7 +214,6 @@
             this.Controls.Add(this.textBoxNomeFilme);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBoxGeneroFilme);
             this.Controls.Add(this.labelFilmesCadastrados);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FilmesForm";
@@ -232,7 +229,6 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label labelFilmesCadastrados;
-        private System.Windows.Forms.ComboBox comboBoxGeneroFilme;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNomeFilme;
@@ -246,5 +242,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGeneroFilme;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAnoLancamento;
         private System.Windows.Forms.DateTimePicker dateTimePickerAnoLancamento;
+        private System.Windows.Forms.TextBox textBoxGeneroFilme;
     }
 }

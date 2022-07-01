@@ -157,13 +157,13 @@ namespace LocadoraForm.Perez
 
             var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
 
-            if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                var resposta = resultado.Content.ReadAsStringAsync().Result;
-                var dadosenderecos = JsonConvert.DeserializeObject<EnderecosDadosRequisitados>(resposta);
+            //if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            //{
+            //    var resposta = resultado.Content.ReadAsStringAsync().Result;
+            //    var dadosenderecos = JsonConvert.DeserializeObject<EnderecosDadosRequisitados>(resposta);
 
-                textBoxEndereco.Text = $"{dadosenderecos.Uf} - {dadosenderecos.Localidade} - {dadosenderecos.Bairro} - {dadosenderecos.Logradouro}";
-            }
+            //    textBoxEndereco.Text = $"{dadosenderecos.uf} - {dadosenderecos.localidade} - {dadosenderecos.bairro} - {dadosenderecos.logradouro}";
+            //}
         }
 
         private void maskedTextBoxCep_MouseLeave(object sender, EventArgs e)

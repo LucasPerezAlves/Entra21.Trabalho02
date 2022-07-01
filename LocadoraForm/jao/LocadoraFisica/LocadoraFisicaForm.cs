@@ -206,7 +206,7 @@ namespace LocadoraForm.jao
                 "Deseja realmente apagar o endereço?", "Aviso",
                 MessageBoxButtons.YesNo);
 
-            if(resposta != DialogResult.Yes)
+            if(resposta == DialogResult.Yes)
             {
                 MessageBox.Show("Operação executada com sucesso");
 
