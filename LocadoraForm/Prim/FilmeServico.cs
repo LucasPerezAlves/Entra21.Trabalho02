@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
-
-// LINHAS COMENTADAS FAZER CORREÇÃO
 
 namespace LocadoraForm.Prim
 {
@@ -34,7 +32,7 @@ namespace LocadoraForm.Prim
                 {
                     filme.NomeFilme = filmeEditar.NomeFilme;
                     filme.GeneroFilme = filmeEditar.GeneroFilme;
-                    filme.ClassificacaoIndicativa = filmeEditar.ClassificacaoIndicativa;
+                    filme.AnoLancamento = filmeEditar.AnoLancamento;
 
                     SalvarArquivo();
 

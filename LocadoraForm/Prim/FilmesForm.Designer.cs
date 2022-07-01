@@ -34,15 +34,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxNomeFilme = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
-            this.radioButtonLivre = new System.Windows.Forms.RadioButton();
-            this.radioButton12Anos = new System.Windows.Forms.RadioButton();
-            this.radioButton16Anos = new System.Windows.Forms.RadioButton();
-            this.radioButton18Anos = new System.Windows.Forms.RadioButton();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNomeFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnGeneroFilme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnClassificacaoIndicativa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.labelAnoLancamento = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,10 +53,15 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnCodigo,
+            this.ColumnNomeFilme,
+            this.ColumnGeneroFilme,
+            this.ColumnClassificacaoIndicativa});
             this.dataGridView1.Location = new System.Drawing.Point(12, 50);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(367, 249);
+            this.dataGridView1.Size = new System.Drawing.Size(424, 249);
             this.dataGridView1.TabIndex = 0;
             // 
             // labelFilmesCadastrados
@@ -74,7 +80,7 @@
             // comboBoxGeneroFilme
             // 
             this.comboBoxGeneroFilme.FormattingEnabled = true;
-            this.comboBoxGeneroFilme.Location = new System.Drawing.Point(384, 102);
+            this.comboBoxGeneroFilme.Location = new System.Drawing.Point(445, 102);
             this.comboBoxGeneroFilme.Name = "comboBoxGeneroFilme";
             this.comboBoxGeneroFilme.Size = new System.Drawing.Size(227, 21);
             this.comboBoxGeneroFilme.TabIndex = 2;
@@ -84,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(385, 85);
+            this.label1.Location = new System.Drawing.Point(442, 85);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 14);
             this.label1.TabIndex = 3;
@@ -94,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(385, 45);
+            this.label2.Location = new System.Drawing.Point(442, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 14);
             this.label2.TabIndex = 4;
@@ -102,25 +108,15 @@
             // 
             // textBoxNomeFilme
             // 
-            this.textBoxNomeFilme.Location = new System.Drawing.Point(384, 62);
+            this.textBoxNomeFilme.Location = new System.Drawing.Point(445, 62);
             this.textBoxNomeFilme.Name = "textBoxNomeFilme";
             this.textBoxNomeFilme.Size = new System.Drawing.Size(227, 20);
             this.textBoxNomeFilme.TabIndex = 5;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(381, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 14);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Classificação indicativa:";
-            // 
             // buttonCancelar
             // 
             this.buttonCancelar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancelar.Location = new System.Drawing.Point(464, 268);
+            this.buttonCancelar.Location = new System.Drawing.Point(500, 268);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(78, 31);
             this.buttonCancelar.TabIndex = 11;
@@ -131,7 +127,7 @@
             // buttonSalvar
             // 
             this.buttonSalvar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(548, 268);
+            this.buttonSalvar.Location = new System.Drawing.Point(595, 268);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(77, 31);
             this.buttonSalvar.TabIndex = 12;
@@ -142,7 +138,7 @@
             // buttonEditar
             // 
             this.buttonEditar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditar.Location = new System.Drawing.Point(231, 12);
+            this.buttonEditar.Location = new System.Drawing.Point(273, 12);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(67, 37);
             this.buttonEditar.TabIndex = 13;
@@ -153,7 +149,7 @@
             // buttonApagar
             // 
             this.buttonApagar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonApagar.Location = new System.Drawing.Point(304, 12);
+            this.buttonApagar.Location = new System.Drawing.Point(346, 12);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(75, 37);
             this.buttonApagar.TabIndex = 14;
@@ -161,65 +157,61 @@
             this.buttonApagar.UseVisualStyleBackColor = true;
             this.buttonApagar.Click += new System.EventHandler(this.buttonApagar_Click);
             // 
-            // radioButtonLivre
+            // ColumnCodigo
             // 
-            this.radioButtonLivre.AutoSize = true;
-            this.radioButtonLivre.Location = new System.Drawing.Point(384, 144);
-            this.radioButtonLivre.Name = "radioButtonLivre";
-            this.radioButtonLivre.Size = new System.Drawing.Size(48, 17);
-            this.radioButtonLivre.TabIndex = 15;
-            this.radioButtonLivre.TabStop = true;
-            this.radioButtonLivre.Text = "Livre";
-            this.radioButtonLivre.UseVisualStyleBackColor = true;
+            this.ColumnCodigo.HeaderText = "Código";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
             // 
-            // radioButton12Anos
+            // ColumnNomeFilme
             // 
-            this.radioButton12Anos.AutoSize = true;
-            this.radioButton12Anos.Location = new System.Drawing.Point(384, 167);
-            this.radioButton12Anos.Name = "radioButton12Anos";
-            this.radioButton12Anos.Size = new System.Drawing.Size(64, 17);
-            this.radioButton12Anos.TabIndex = 16;
-            this.radioButton12Anos.TabStop = true;
-            this.radioButton12Anos.Text = "12 Anos";
-            this.radioButton12Anos.UseVisualStyleBackColor = true;
+            this.ColumnNomeFilme.HeaderText = "Nome do filme";
+            this.ColumnNomeFilme.Name = "ColumnNomeFilme";
+            this.ColumnNomeFilme.ReadOnly = true;
             // 
-            // radioButton16Anos
+            // ColumnGeneroFilme
             // 
-            this.radioButton16Anos.AutoSize = true;
-            this.radioButton16Anos.Location = new System.Drawing.Point(384, 190);
-            this.radioButton16Anos.Name = "radioButton16Anos";
-            this.radioButton16Anos.Size = new System.Drawing.Size(64, 17);
-            this.radioButton16Anos.TabIndex = 17;
-            this.radioButton16Anos.TabStop = true;
-            this.radioButton16Anos.Text = "16 Anos";
-            this.radioButton16Anos.UseVisualStyleBackColor = true;
+            this.ColumnGeneroFilme.HeaderText = "Gênero do filme";
+            this.ColumnGeneroFilme.Name = "ColumnGeneroFilme";
+            this.ColumnGeneroFilme.ReadOnly = true;
             // 
-            // radioButton18Anos
+            // ColumnClassificacaoIndicativa
             // 
-            this.radioButton18Anos.AutoSize = true;
-            this.radioButton18Anos.Location = new System.Drawing.Point(384, 213);
-            this.radioButton18Anos.Name = "radioButton18Anos";
-            this.radioButton18Anos.Size = new System.Drawing.Size(64, 17);
-            this.radioButton18Anos.TabIndex = 18;
-            this.radioButton18Anos.TabStop = true;
-            this.radioButton18Anos.Text = "18 Anos";
-            this.radioButton18Anos.UseVisualStyleBackColor = true;
+            this.ColumnClassificacaoIndicativa.HeaderText = "Classificação indicativa";
+            this.ColumnClassificacaoIndicativa.Name = "ColumnClassificacaoIndicativa";
+            this.ColumnClassificacaoIndicativa.ReadOnly = true;
+            // 
+            // labelAnoLancamento
+            // 
+            this.labelAnoLancamento.AutoSize = true;
+            this.labelAnoLancamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnoLancamento.Location = new System.Drawing.Point(445, 130);
+            this.labelAnoLancamento.Name = "labelAnoLancamento";
+            this.labelAnoLancamento.Size = new System.Drawing.Size(162, 14);
+            this.labelAnoLancamento.TabIndex = 16;
+            this.labelAnoLancamento.Text = "Data de lançamento do filme";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(448, 147);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
+            this.maskedTextBox1.TabIndex = 17;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // FilmesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(625, 311);
-            this.Controls.Add(this.radioButton18Anos);
-            this.Controls.Add(this.radioButton16Anos);
-            this.Controls.Add(this.radioButton12Anos);
-            this.Controls.Add(this.radioButtonLivre);
+            this.ClientSize = new System.Drawing.Size(684, 311);
+            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.labelAnoLancamento);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonCancelar);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxNomeFilme);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -243,14 +235,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxNomeFilme;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.Button buttonEditar;
         private System.Windows.Forms.Button buttonApagar;
-        private System.Windows.Forms.RadioButton radioButtonLivre;
-        private System.Windows.Forms.RadioButton radioButton12Anos;
-        private System.Windows.Forms.RadioButton radioButton16Anos;
-        private System.Windows.Forms.RadioButton radioButton18Anos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNomeFilme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnGeneroFilme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnClassificacaoIndicativa;
+        private System.Windows.Forms.Label labelAnoLancamento;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
