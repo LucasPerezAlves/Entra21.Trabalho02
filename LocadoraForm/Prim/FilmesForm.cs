@@ -21,19 +21,21 @@ namespace LocadoraForm
 
             PreencherDataGrideViewComFilmes();
             PreencherComboBoxGeneroFilme();
-        }
+        } 
 
         private void LimparCampos()
         {
             textBoxNomeFilme.Clear();
-            comboBoxGeneroFilme.ResetText();
+            comboBoxGeneroFilme.SelectedIndex = -1;
             maskedTextBox1.Clear();
-        }
+
+            dataGridView1.ClearSelection();
+        } 
 
         private void FilmesForm_Load(object sender, EventArgs e)
         {
             PreencherDataGrideViewComFilmes();
-        }
+        } 
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
@@ -81,11 +83,51 @@ namespace LocadoraForm
             LimparCampos();
         }
 
+        private void CadastrarFilme(string nomeFilme, GeneroFilme generoFilme, DateTime anoLancamento)
+        {
+            var filme = new Filme();
+            filme.Codigo = filmeServico.ObterUltimoCodigo() + 1;
+            filme.NomeFilme = nomeFilme;
+            filme.GeneroFilme = generoFilme;
+            // filme.AnoLancamento = anoLancamento;
+
+            filmeServico.Adicionar(filme);
+        }
+
+        private void EditarEndereco(string nomeFilme, string generoFilme, DateTime anoLancamento)
+        {
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var filme = new Filme();
+            filme.Codigo = codigoSelecionado;
+            filme.NomeFilme = nomeFilme;
+            //filme.GeneroFilme = generoFilme; 
+            //filme.AnoLancamento = anoLancamento;
+
+            //filmeServico.Editar(filme);
+        }     
+        
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             var nomeFilme = textBoxNomeFilme.Text;
-            var generoFilme = comboBoxGeneroFilme.SelectedItem.ToString();
+            var generoFilme = comboBoxGeneroFilme.SelectedItem;
             var anoLancamento = maskedTextBox1.Text;
+
+            //var dadosValidos = ValidarDados(nomeFilme, generoFilme, anoLancamento);
+
+            //if (dadosValidos == false)
+            //    return;
+
+            //if (dataGridView1.SelectedRows.Count == 0)
+            //    CadastrarFilme(nomeFilme, generoFilme, anoLancamento);
+            //else
+            //    EditarEndereco(nomeFilme, generoFilme, anoLancamento);
+
+            PreencherDataGrideViewComFilmes();
+
+            LimparCampos();
+                
         }
 
         private void DadosParaEditar()
@@ -126,7 +168,7 @@ namespace LocadoraForm
                     filme.AnoLancamento
                 });
             }
-        }
+        } 
 
         private void PreencherComboBoxGeneroFilme()
         {
@@ -135,24 +177,19 @@ namespace LocadoraForm
             for (var i = 0; i < generos.Count; i++)
             {
                 var cliente = generos[i];
-                comboBoxGeneroFilme.Items.Add(generos); 
+                comboBoxGeneroFilme.Items.Add(generos);
             }
         }
 
-        private void ValidarDados(string nomeFilme, string generoFilme, string anoLancamento)
+        private bool ValidarDados(string nomeFilme, string generoFilme, string anoLancamento)
         {
-            try
-            {
-                if (nomeFilme.Length < 3 && nomeFilme.Length > 30)
-                {
-                    MessageBox.Show("Nome do filme é inválido");
-
-                    textBoxNomeFilme.Focus();
-                }
-            }
-            catch
+            if (nomeFilme.Length < 3 && nomeFilme.Length > 30)
             {
                 MessageBox.Show("Nome do filme é inválido");
+
+                textBoxNomeFilme.Focus();
+
+                return false;
             }
 
             if (comboBoxGeneroFilme.SelectedIndex == -1)
@@ -160,9 +197,20 @@ namespace LocadoraForm
                 MessageBox.Show("Escolha um paciente");
 
                 comboBoxGeneroFilme.DroppedDown = true;
+
+                return false;
             }
 
+            // DATE TIME TODO
+            //if ()
+            //{
+            //    MessageBox.Show("Data de Lançamento inválida");
 
+            //    maskedTextBox1.Focus();
+
+            //    return false;
+            //}
+            return true;
         }
     }
 }
