@@ -100,6 +100,10 @@ namespace LocadoraForm.Perez
                 return;
             }
             EditarDados(nome, cep);
+
+            PreencherDataGridViewComEnderecos();
+
+            LimparCampos();
         }
 
         private void ClientesForm_Load(object sender, EventArgs e)
@@ -124,25 +128,14 @@ namespace LocadoraForm.Perez
 
         private void buttonApagar_Click(object sender, EventArgs e)
         {
-            var quantidadeLinhaSelecionada = dataGridView1.SelectedRows.Count;
-
-            if (quantidadeLinhaSelecionada == 0)
+           if(dataGridView1.SelectedRows.Count == 0)
             {
-                MessageBox.Show("selecione um cliente");
+                MessageBox.Show("Selecione um cliente para remover");
                 return;
             }
 
-            var opcaoEscolhida = MessageBox.Show("Deseja realmente apagar?", "aviso", MessageBoxButtons.YesNo);
-
-            if (opcaoEscolhida == DialogResult.Yes)
-            {
-                var linhaSelecionada = dataGridView1.SelectedRows[0];
-                var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-
-                clienteServico.Apagar(codigoSelecionado);
-
-                ListarClientes();
-            }
+            var resposta = MessageBox.Show("Deseja realmente apagar o endereço?", "Aviso", MessageBoxButtons.YesNo);
+            
         }
 
         private void ObterCep()
@@ -206,11 +199,32 @@ namespace LocadoraForm.Perez
         private void CadastrarEnderecos(string cep, string enderecoCompleto)
         {
             var endereco = new Cliente();
-            //endereco.Codigo = Cliente.ObterUltimoCodigo() + 1;
+            endereco.Codigo = clienteServico.ObterUltimoCodigo() + 1;
             endereco.Cep = cep;
             endereco.EnderecoCompleto = enderecoCompleto;
 
-            //ClienteServico.Adicionar(endereco);
+            clienteServico.AdicionarEndereco(endereco);
+        }
+
+        private void PreencherDataGridViewComEnderecos()
+        {
+            var enderecos = clienteServico.ObterTodos();
+
+            dataGridView1.Rows.Clear();
+            dataGridView1.ClearSelection();
+
+            for(var i = 0; i < enderecos.Count; i++)
+            {
+                var endereco = enderecos[i];
+
+                dataGridView1.Rows.Add(new object[]
+                {
+                    endereco.EnderecoCompleto,
+                    endereco.Nome,
+                    endereco.Cep,
+                    endereco.Codigo
+                });
+            }
         }
     }
 }
