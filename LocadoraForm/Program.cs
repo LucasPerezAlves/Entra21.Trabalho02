@@ -1,5 +1,4 @@
-﻿using LocadoraForm.jao;
-using LocadoraForm.Perez;
+﻿using LocadoraForm.Perez;
 using System;
 using System.Windows.Forms;
 
@@ -15,7 +14,7 @@ namespace LocadoraForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LocadoraFisicaForm());
+            Application.Run(new ClientesForm());
         }
     }
 }

@@ -110,6 +110,8 @@ namespace LocadoraForm.Perez
 
             SalvarArquivo();
         }
+
+        //public void AdicionarEndereco(Cliente )
     }
 
 
